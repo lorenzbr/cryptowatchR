@@ -6,14 +6,7 @@ A simple API wrapper in R for cryptowatch
 
 ## Introduction
 
-This R package is a unofficial API wrapper for cryptowatch.
-
-
-## Contact
-
-Please contact <lorenz.brachtendorf@gmx.de> if you want to contribute to this project.
-
-You can also submit bug reports and suggestions via e-mail or <https://github.com/lorenzbr/cryptowatchR/issues> 
+This R package is an API wrapper for cryptowatch. Check [https://docs.cryptowat.ch/rest-api](https://docs.cryptowat.ch/rest-api) for a detailed documentation.
 
 
 ## Installation
@@ -32,11 +25,25 @@ devtools::install_github("lorenzbr/cryptowatchR")
 exchange <- "kraken"
 pair <- "btcusd"
 route <- "ohlc"
-params <- list(periods = 86400)
-# params <- list(periods = 3600, before = 1602179348, after = 1594087200)
 
-df.markets <- get_markets(pair, params, exchange = "kraken", route = "ohlc")
+params1 <- list(periods = 86400)
+params2 <- list(periods = 3600, before = 1602179348, after = 1594087200)
+params3 <- list(periods = 86400, after = "2021-01-01", before = "2021-05-12")
+params4 <- list(periods = 86400, after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")),
+               before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")))
+
+df.markets1 <- cryptowatchR::get_markets(pair, params1, exchange = "kraken", route = "ohlc")
+df.markets2 <- cryptowatchR::get_markets_as_df(pair, params2, exchange = "kraken", route = "ohlc")
+df.markets3 <- cryptowatchR::get_markets_by_date(pair, params3, exchange = "kraken", route = "ohlc")
+df.markets4 <- cryptowatchR::get_markets_as_df(pair, params4, exchange = "kraken", route = "ohlc")
 ```
+
+
+## Contact
+
+Please contact <lorenz.brachtendorf@gmx.de> if you want to contribute to this project.
+
+You can also submit bug reports and suggestions via e-mail or <https://github.com/lorenzbr/cryptowatchR/issues> 
 
 
 ## License

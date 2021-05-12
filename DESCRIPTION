@@ -9,7 +9,7 @@ Authors@R:
            email = "lorenz.brachtendorf@gmx.de",
            comment = c(ORCID = "0000-0001-7066-0838"))
 Description: A simple API wrapper in R for crpytowatch. Get price data for crypto currencies.
-Imports: httr, jsonlite
+Imports: httr, jsonlite, lubridate
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -1,6 +1,6 @@
 #' Get data from cryptowatch
 #' @param ... Additional arguments.
-#' @NoRd
+#' @noRd
 get_data <- function(...) {
 
   path <- get_cryptowatch_url()

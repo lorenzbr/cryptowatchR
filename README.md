@@ -27,15 +27,16 @@ pair <- "btcusd"
 route <- "ohlc"
 
 params1 <- list(periods = 86400)
-params2 <- list(periods = 3600, before = 1602179348, after = 1594087200)
-params3 <- list(periods = 86400, after = "2021-01-01", before = "2021-05-12")
-params4 <- list(periods = 86400, after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")),
-               before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")))
-
+params2 <- list(periods = 3600, before = 1609851600, after = 1609506000)
+params3 <- list(periods = 3600, before = "2021-01-05", after = "2021-01-01")
+params4 <- list(periods = 86400, before = "2021-05-12", after = "2021-01-01")
+params5 <- list(periods = 86400, before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")),
+                after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")))
 df.markets1 <- cryptowatchR::get_markets(pair, params1, exchange = "kraken", route = "ohlc")
 df.markets2 <- cryptowatchR::get_markets_as_df(pair, params2, exchange = "kraken", route = "ohlc")
 df.markets3 <- cryptowatchR::get_markets_by_date(pair, params3, exchange = "kraken", route = "ohlc")
-df.markets4 <- cryptowatchR::get_markets_as_df(pair, params4, exchange = "kraken", route = "ohlc")
+df.markets4 <- cryptowatchR::get_markets_by_date(pair, params4, exchange = "kraken", route = "ohlc")
+df.markets5 <- cryptowatchR::get_markets_as_df(pair, params5, exchange = "kraken", route = "ohlc")
 ```
 
 

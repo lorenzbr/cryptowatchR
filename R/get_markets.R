@@ -40,7 +40,7 @@ get_markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc"
 #' @export
 get_markets_as_df <- function(pair, params = NULL, exchange = "kraken", route = "ohlc") {
 
-  data <- cryptowatchR::get_markets(pair, params, exchange, route)
+  data <- get_markets(pair, params, exchange, route)
 
   df.data <- data.frame(data[[1]][[1]])
 
@@ -65,7 +65,7 @@ get_markets_by_date <- function(pair, params = NULL, exchange = "kraken", route 
   if (!is.null(params[["before"]])) params$before <- as.numeric(as.POSIXct(params$before))
   if (!is.null(params[["after"]])) params$after <- as.numeric(as.POSIXct(params$after))
 
-  df.data <- cryptowatchR::get_markets_as_df(pair, params, exchange, route)
+  df.data <- get_markets_as_df(pair, params, exchange, route)
 
   df.data$CloseTime <- lubridate::as_datetime(df.data$CloseTime)
 

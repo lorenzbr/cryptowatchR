@@ -1,4 +1,4 @@
-#' Get cryptowatch URL
+#' Get URL of cryptowatch API
 #' @noRd
 get_cryptowatch_url <- function() {
 

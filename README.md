@@ -1,12 +1,12 @@
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 # cryptowatchR
-An API wrapper for cryptowatch in R
+An API wrapper for Cryptowatch written in R
 
 
 ## Introduction
 
-This R package is an API wrapper for cryptowatch. Check [https://docs.cryptowat.ch/rest-api](https://docs.cryptowat.ch/rest-api) for a detailed documentation.
+This R package provides an API wrapper for Cryptowatch. You can get prices and other information for cryptocurrencies and crypto exchanges. Check [https://docs.cryptowat.ch/rest-api](https://docs.cryptowat.ch/rest-api) for a detailed documentation.
 
 
 ## Installation

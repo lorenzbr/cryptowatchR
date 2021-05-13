@@ -1,6 +1,6 @@
 Package: cryptowatchR
 Type: Package
-Title: An API wrapper for cryptowatch
+Title: An API wrapper for Cryptowatch
 Version: 0.1.0
 Authors@R: 
     person(given = "Lorenz",
@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "lorenz.brachtendorf@gmx.de",
            comment = c(ORCID = "0000-0001-7066-0838"))
-Description: An API wrapper for crpytowatch written in R. Get price data for cryptocurrencies.
+Description: This package provides an API wrapper for Cryptowatch. Prices and other information for cryptocurrencies and crypto exchanges can be retrieved.
 Imports: httr, jsonlite, lubridate
 License: GPL-3 + file LICENSE
 Encoding: UTF-8

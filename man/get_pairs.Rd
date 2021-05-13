@@ -10,8 +10,21 @@ get_pairs(pair = NULL)
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd}. Optional argument.}
 }
 \value{
-data A list containing pair data.
+data A list or data.frame containing pair data.
 }
 \description{
-Get pair of currencies
+Get details on pairs of (crypto)currencies.
+}
+\examples{
+\dontrun{
+btcusd.data <- get_pairs("btcusd")
+df.pairs <- get_pairs()
+}
+
+}
+\references{
+See \url{https://docs.cryptowat.ch/rest-api} for further information
+}
+\seealso{
+\code{\link{get_markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}
 }

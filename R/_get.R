@@ -1,5 +1,5 @@
 #' Get data from cryptowatch
-#' @param ... Additional arguments.
+#' @param ... Arguments to be passed to or from other methods.
 #' @noRd
 get_data <- function(...) {
 

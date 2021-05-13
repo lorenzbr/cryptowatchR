@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_markets.R
 \name{get_markets}
 \alias{get_markets}
-\title{Get price data for cryptocurrencies}
+\title{Get prices for cryptocurrencies}
 \usage{
 get_markets(pair, params = NULL, exchange = "kraken", route = "ohlc")
 }
@@ -16,8 +16,22 @@ get_markets(pair, params = NULL, exchange = "kraken", route = "ohlc")
 \item{route}{A string containing market prices. Possible values: \emph{price, trades, summary, orderbook, ohlc}. Default is \emph{ohlc}.}
 }
 \value{
-data A list containing price data for given pair.
+data A list containing price data for a given pair of currencies.
 }
 \description{
-Get price data for cryptocurrencies
+Get price data for cryptocurrencies using the REST API of cryptowat.ch.
+}
+\examples{
+\dontrun{
+btcusd.data <- get_markets("btcusd")
+btcusd.data2 <- get_markets("btcusd", list(periods = 3600, before = 1609851600,
+                                           after = 1609506000))
+}
+
+}
+\references{
+See \url{https://docs.cryptowat.ch/rest-api} for further information
+}
+\seealso{
+\code{\link{markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
 }

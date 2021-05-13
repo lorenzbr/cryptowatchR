@@ -20,7 +20,7 @@ devtools::install_github("lorenzbr/cryptowatchR")
 ## Usage
 
 ```R
-# Example
+# Examples
 
 exchange <- "kraken"
 pair <- "btcusd"
@@ -37,6 +37,15 @@ df.markets2 <- cryptowatchR::get_markets_as_df(pair, params2, exchange = "kraken
 df.markets3 <- cryptowatchR::get_markets_by_date(pair, params3, exchange = "kraken", route = "ohlc")
 df.markets4 <- cryptowatchR::get_markets_by_date(pair, params4, exchange = "kraken", route = "ohlc")
 df.markets5 <- cryptowatchR::get_markets_as_df(pair, params5, exchange = "kraken", route = "ohlc")
+
+asset.data <- get_assets("btc")
+df.assets <- get_assets()
+
+btcusd.data <- get_pairs("btcusd")
+df.pairs <- get_pairs()
+
+exchange.data <- get_exchanges("kraken")
+df.exchanges <- get_exchanges()
 ```
 
 

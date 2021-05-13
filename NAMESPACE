@@ -3,6 +3,5 @@
 export(get_assets)
 export(get_exchanges)
 export(get_markets)
-export(get_markets_as_df)
-export(get_markets_by_date)
 export(get_pairs)
+export(markets)

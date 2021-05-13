@@ -10,8 +10,21 @@ get_assets(asset = NULL)
 \item{asset}{A string containing an asset symbol, e.g. \emph{btc}. Optional argument.}
 }
 \value{
-data A list containing asset data.
+data A list or data.frame containing asset data.
 }
 \description{
-Get asset details
+Get asset information for cryptocurrencies.
+}
+\examples{
+\dontrun{
+asset.data <- get_assets("btc")
+df.assets <- get_assets()
+}
+
+}
+\references{
+See \url{https://docs.cryptowat.ch/rest-api} for further information
+}
+\seealso{
+\code{\link{get_markets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
 }

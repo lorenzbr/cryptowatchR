@@ -1,11 +1,23 @@
-#' Get price data for cryptocurrencies
+#' Get prices for cryptocurrencies
+#'
+#' Get price data for cryptocurrencies using the REST API of cryptowat.ch.
+#'
 #' @usage get_markets(pair, params = NULL, exchange = "kraken", route = "ohlc")
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument).
 #' @param params A list containing \code{before}, \code{after} and \code{periods} (optional). See \emph{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #' @param exchange A string containing the exchange. Default is \emph{kraken}.
 #' @param route A string containing market prices. Possible values: \emph{price, trades, summary, orderbook, ohlc}. Default is \emph{ohlc}.
 #'
-#' @return data A list containing price data for given pair.
+#' @return data A list containing price data for a given pair of currencies.
+#'
+#' @references See \url{https://docs.cryptowat.ch/rest-api} for further information
+#' @seealso \code{\link{markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
+#' @examples
+#' \dontrun{
+#' btcusd.data <- get_markets("btcusd")
+#' btcusd.data2 <- get_markets("btcusd", list(periods = 3600, before = 1609851600,
+#'                                            after = 1609506000))
+#' }
 #'
 #' @export
 get_markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc") {
@@ -28,17 +40,38 @@ get_markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc"
 
 }
 
-#' Get data.frame with prices for cryptocurrencies
-#' @usage get_markets_as_df(pair, params = NULL, exchange = "kraken", route = "ohlc")
+#' Get prices for cryptocurrencies
+#'
+#' Get data.frame with prices for cryptocurrencies using the REST API of cryptowat.ch.
+#' @usage markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument).
-#' @param params A list containing \code{before}, \code{after} and \code{periods} (optional). See \emph{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
+#' @param params A list containing \code{before}, \code{after} and \code{periods} (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #' @param exchange A string containing the exchange. Default is \emph{kraken}.
 #' @param route A string containing market prices. Possible values: \emph{price, trades, summary, orderbook, ohlc}. Default is \emph{ohlc}.
+#' @param datetime A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.
 #'
-#' @return df.data A data.frame containing price data for given pair.
+#' @return df.data A data.frame containing price data for a given pair of currencies.
+#'
+#' @references See \url{https://docs.cryptowat.ch/rest-api} for further information.
+#' @seealso \code{\link{get_markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
+#' @examples
+#' \dontrun{
+#' df.btcusd.data <- markets("btcusd")
+#' df.btcusd.data2 <- markets("btcusd", list(periods = 3600, before = 1609851600,
+#'                                           after = 1609506000), datetime = FALSE)
+#' df.btceur.data3 <- markets("btceur", list(periods = 86400, before = "2021-05-12",
+#'                                           after = "2021-01-01"))
+#' }
 #'
 #' @export
-get_markets_as_df <- function(pair, params = NULL, exchange = "kraken", route = "ohlc") {
+markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE) {
+
+  if (datetime) {
+
+    if (!is.null(params[["before"]])) params$before <- as.numeric(as.POSIXct(params$before))
+    if (!is.null(params[["after"]])) params$after <- as.numeric(as.POSIXct(params$after))
+
+  }
 
   data <- get_markets(pair, params, exchange, route)
 
@@ -46,28 +79,7 @@ get_markets_as_df <- function(pair, params = NULL, exchange = "kraken", route = 
 
   names(df.data) <- c("CloseTime", "OpenPrice", "HighPrice", "LowPrice", "ClosePrice", "Volume", "QuoteVolume")
 
-  return(df.data)
-
-}
-
-#' Get data.frame with prices for cryptocurrencies (use dates as in-/output)
-#' @usage get_markets_by_date(pair, params = NULL, exchange = "kraken", route = "ohlc")
-#' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument).
-#' @param params A list containing \code{before}, \code{after} and \code{periods} (optional). Dates can be of type "Y-m-d". \code{periods} in seconds: 86400 refers to daily prices.
-#' @param exchange A string containing the exchange. Default is \emph{kraken}.
-#' @param route A string containing market prices. Possible values: \emph{price, trades, summary, orderbook, ohlc}. Default is \emph{ohlc}.
-#'
-#' @return df.data A data.frame containing price data for given pair.
-#'
-#' @export
-get_markets_by_date <- function(pair, params = NULL, exchange = "kraken", route = "ohlc") {
-
-  if (!is.null(params[["before"]])) params$before <- as.numeric(as.POSIXct(params$before))
-  if (!is.null(params[["after"]])) params$after <- as.numeric(as.POSIXct(params$after))
-
-  df.data <- get_markets_as_df(pair, params, exchange, route)
-
-  df.data$CloseTime <- lubridate::as_datetime(df.data$CloseTime)
+  if (datetime) df.data$CloseTime <- lubridate::as_datetime(df.data$CloseTime)
 
   return(df.data)
 

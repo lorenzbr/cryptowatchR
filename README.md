@@ -33,19 +33,19 @@ params4 <- list(periods = 86400, before = "2021-05-12", after = "2021-01-01")
 params5 <- list(periods = 86400, before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")),
                 after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")))
 df.markets1 <- cryptowatchR::get_markets(pair, params1, exchange = "kraken", route = "ohlc")
-df.markets2 <- cryptowatchR::get_markets_as_df(pair, params2, exchange = "kraken", route = "ohlc")
-df.markets3 <- cryptowatchR::get_markets_by_date(pair, params3, exchange = "kraken", route = "ohlc")
-df.markets4 <- cryptowatchR::get_markets_by_date(pair, params4, exchange = "kraken", route = "ohlc")
-df.markets5 <- cryptowatchR::get_markets_as_df(pair, params5, exchange = "kraken", route = "ohlc")
+df.markets2 <- cryptowatchR::markets(pair, params2, exchange = "kraken", route = "ohlc", datetime = FALSE)
+df.markets3 <- cryptowatchR::markets(pair, params3, exchange = "kraken", route = "ohlc")
+df.markets4 <- cryptowatchR::markets(pair, params4, exchange = "kraken", route = "ohlc")
+df.markets5 <- cryptowatchR::markets(pair, params5, exchange = "kraken", route = "ohlc", datetime = FALSE)
 
-asset.data <- get_assets("btc")
-df.assets <- get_assets()
+asset.data <- cryptowatchR::get_assets("btc")
+df.assets <- cryptowatchR::get_assets()
 
-btcusd.data <- get_pairs("btcusd")
-df.pairs <- get_pairs()
+btcusd.data <- cryptowatchR::get_pairs("btcusd")
+df.pairs <- cryptowatchR::get_pairs()
 
-exchange.data <- get_exchanges("kraken")
-df.exchanges <- get_exchanges()
+exchange.data <- cryptowatchR::get_exchanges("kraken")
+df.exchanges <- cryptowatchR::get_exchanges()
 ```
 
 

@@ -18,9 +18,13 @@ This R package provides an API wrapper for Cryptowatch. You can get prices and o
 
 ## Installation
 
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ```R
 devtools::install_github("lorenzbr/cryptowatchR")
+# if not, try:
+devtools::install_github("lorenzbr/cryptowatchR@main")
 ```
 
 

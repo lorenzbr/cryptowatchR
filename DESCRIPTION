@@ -9,7 +9,10 @@ Authors@R:
            email = "lorenz.brachtendorf@gmx.de",
            comment = c(ORCID = "0000-0001-7066-0838"))
 Description: This package provides an API wrapper for Cryptowatch. Prices and other information for cryptocurrencies and crypto exchanges can be retrieved.
-Imports: httr, jsonlite, lubridate
+Imports:
+    httr,
+    jsonlite,
+    lubridate
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true

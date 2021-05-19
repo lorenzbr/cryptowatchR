@@ -45,8 +45,8 @@ params5 <- list(periods = 86400, before = as.numeric(as.POSIXct("2021-05-12 14:0
                 after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")))
 df.markets1 <- cryptowatchR::get_markets(pair, params1, exchange = "kraken", route = "ohlc")
 df.markets2 <- cryptowatchR::markets(pair, params2, exchange = "kraken", route = "ohlc", datetime = FALSE)
-df.markets3 <- cryptowatchR::markets(pair, params3, exchange = "kraken", route = "ohlc")
-df.markets4 <- cryptowatchR::markets(pair, params4, exchange = "kraken", route = "ohlc")
+df.markets3 <- cryptowatchR::markets(pair, params3, exchange = "kraken", route = "ohlc", datetime = TRUE)
+df.markets4 <- cryptowatchR::markets(pair, params4, exchange = "kraken", route = "ohlc", datetime = TRUE)
 df.markets5 <- cryptowatchR::markets(pair, params5, exchange = "kraken", route = "ohlc", datetime = FALSE)
 
 asset.data <- cryptowatchR::get_assets("btc")

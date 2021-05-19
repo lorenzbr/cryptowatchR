@@ -4,7 +4,7 @@
 \alias{markets}
 \title{Get prices for cryptocurrencies}
 \usage{
-markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE)
+markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = FALSE)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument).}
@@ -29,7 +29,7 @@ df.btcusd.data <- markets("btcusd")
 df.btcusd.data2 <- markets("btcusd", list(periods = 3600, before = 1609851600,
                                           after = 1609506000), datetime = FALSE)
 df.btceur.data3 <- markets("btceur", list(periods = 86400, before = "2021-05-12",
-                                          after = "2021-01-01"))
+                                          after = "2021-01-01"), datetime = TRUE)
 }
 
 }

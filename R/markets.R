@@ -2,7 +2,7 @@
 #'
 #' Get data.frame with prices for cryptocurrencies using the REST API of cryptowat.ch.
 #'
-#' @usage markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE)
+#' @usage markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = FALSE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument).
 #' @param params A list containing \code{before}, \code{after} and \code{periods} (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #' @param exchange A string containing the exchange. Default is \emph{kraken}.
@@ -19,11 +19,11 @@
 #' df.btcusd.data2 <- markets("btcusd", list(periods = 3600, before = 1609851600,
 #'                                           after = 1609506000), datetime = FALSE)
 #' df.btceur.data3 <- markets("btceur", list(periods = 86400, before = "2021-05-12",
-#'                                           after = "2021-01-01"))
+#'                                           after = "2021-01-01"), datetime = TRUE)
 #' }
 #'
 #' @export
-markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE) {
+markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = FALSE) {
 
   if (datetime) {
 

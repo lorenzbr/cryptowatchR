@@ -15,6 +15,5 @@ Imports:
     lubridate
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
-LazyData: true
 URL: https://github.com/lorenzbr/cryptowatchR
 RoxygenNote: 7.1.1

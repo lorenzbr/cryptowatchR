@@ -1,6 +1,6 @@
 Package: cryptowatchR
 Type: Package
-Title: An API Wrapper for Cryptowatch
+Title: An API Wrapper for 'Cryptowatch'
 Version: 0.1.0
 Authors@R: 
     person(given = "Lorenz",
@@ -8,12 +8,13 @@ Authors@R:
            role = c("aut", "cre"),
            email = "lorenz.brachtendorf@gmx.de",
            comment = c(ORCID = "0000-0001-7066-0838"))
-Description: It provides an API wrapper for Cryptowatch. Historical price data and other information for cryptocurrencies and crypto exchanges can be retrieved.
+Description: It provides an API wrapper for 'Cryptowatch'. Historical price data and other information on cryptocurrencies and crypto exchanges can be retrieved. API documentation: <https://docs.cryptowat.ch/rest-api>.
 Imports:
     httr,
     jsonlite,
     lubridate
-License: GPL-3 + file LICENSE
+License: GPL (>= 3)
 Encoding: UTF-8
-URL: https://github.com/lorenzbr/cryptowatchR
 RoxygenNote: 7.1.1
+URL: https://github.com/lorenzbr/cryptowatchR
+BugReports: https://github.com/lorenzbr/cryptowatchR/issues

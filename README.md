@@ -13,7 +13,7 @@ An API wrapper for Cryptowatch written in R
 
 ## Introduction
 
-This R package provides an API wrapper for Cryptowatch. You can get prices and other information for cryptocurrencies and crypto exchanges. Check [https://docs.cryptowat.ch/rest-api](https://docs.cryptowat.ch/rest-api) for a detailed documentation.
+This R package provides a wrapper for the Cryptowatch API. You can get prices and other information about cryptocurrencies and crypto exchanges. Check [https://docs.cryptowat.ch/rest-api](https://docs.cryptowat.ch/rest-api) for a detailed documentation. The API is free of charge and does not require you to create an API key. For example, you can easily retrieve historical prices for all major cryptocurrencies.
 
 
 ## Installation

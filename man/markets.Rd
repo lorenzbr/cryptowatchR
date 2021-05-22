@@ -4,7 +4,7 @@
 \alias{markets}
 \title{Get prices for cryptocurrencies}
 \usage{
-markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = FALSE)
+markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument).}

@@ -2,7 +2,7 @@
 #'
 #' Get data.frame with prices for cryptocurrencies using the REST API of cryptowat.ch.
 #'
-#' @usage markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = FALSE)
+#' @usage markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument).
 #' @param params A list containing \code{before}, \code{after} and \code{periods} (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #' @param exchange A string containing the exchange. Default is \emph{kraken}.
@@ -23,7 +23,7 @@
 #' }
 #'
 #' @export
-markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = FALSE) {
+markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE) {
 
   if (datetime) {
 

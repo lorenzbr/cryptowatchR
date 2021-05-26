@@ -1,7 +1,7 @@
 # cryptowatchR
 
 <!-- badges: start -->
-
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/cryptowatchR)](https://cran.r-project.org/package=cryptowatchR)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable-1)
@@ -18,12 +18,15 @@ This R package provides a wrapper for the Cryptowatch API. You can get prices an
 
 ## Installation
 
+You can install the stable version from CRAN with:
+```R
+install.packages(cryptowatchR)
+```
+
 You can install the development version from
 [GitHub](https://github.com/) with:
 
 ```R
-devtools::install_github("lorenzbr/cryptowatchR")
-# if not, try:
 devtools::install_github("lorenzbr/cryptowatchR@main")
 ```
 

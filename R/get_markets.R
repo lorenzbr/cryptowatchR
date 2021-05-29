@@ -26,15 +26,20 @@ get_markets <- function(pair, params = NULL, exchange = "kraken", route = "ohlc"
 
   path <- file.path(path, "markets", exchange, pair, route)
 
-  if (is.null(params)) request <- httr::GET(path)
+  if (is.null(params)) {
 
-  if (!is.null(params)) request <- httr::GET(path, query = params)
+    request <- httr::GET(path)
+
+  } else {
+    request <- httr::GET(path, query = params)
+
+  }
 
   response <- httr::content(request, as = "text", encoding = "UTF-8")
 
   data <- jsonlite::fromJSON(response, flatten = TRUE)
 
-  if (!grepl("^2", as.character(request$status_code))) stop(request$status_code, " ", data$error)
+  if ( !grepl("^2", as.character(request$status_code)) ) stop(request$status_code, " ", data$error)
 
   return(data)
 

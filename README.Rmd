@@ -1,14 +1,23 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # cryptowatchR
 
 <!-- badges: start -->
-
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/cryptowatchR)](https://cran.r-project.org/package=cryptowatchR)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/cryptowatchR)](https://cran.r-project.org/package=cryptowatchR)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable-1)
 [![R-CMD-check](https://github.com/lorenzbr/cryptowatchR/workflows/R-CMD-check/badge.svg)](https://github.com/lorenzbr/cryptowatchR/actions)
@@ -16,26 +25,26 @@ stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecy
 
 An API wrapper for Cryptowatch written in R
 
+
 ## Installation
 
-You can install the released version of cryptowatchR from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the released version of cryptowatchR from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("cryptowatchR")
 ```
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("lorenzbr/cryptowatchR")
 ```
 
+
 ## Usage
 
-``` r
+```R
 ## Examples
 
 # Set parameters
@@ -77,17 +86,16 @@ df.exchanges <- cryptowatchR::get_exchanges()
 exchange.kraken <- cryptowatchR::get_exchanges("kraken")
 ```
 
+
 ## Contact
 
-Please contact <lorenz.brachtendorf@gmx.de> if you want to contribute to
-this project.
+Please contact <lorenz.brachtendorf@gmx.de> if you want to contribute to this project.
 
-You can also submit bug reports and suggestions via e-mail or
-<https://github.com/lorenzbr/cryptowatchR/issues>
+You can also submit bug reports and suggestions via e-mail or <https://github.com/lorenzbr/cryptowatchR/issues> 
+
 
 ## License
 
 This R package is licensed under the GNU General Public License v3.0.
 
-See [here](https://github.com/lorenzbr/cryptowatchR/blob/main/LICENSE)
-for further information.
+See [here](https://github.com/lorenzbr/cryptowatchR/blob/main/LICENSE) for further information.

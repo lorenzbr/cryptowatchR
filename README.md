@@ -16,6 +16,15 @@ stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecy
 
 An API wrapper for Cryptowatch written in R
 
+## Introduction
+
+This R package provides a wrapper for the Cryptowatch API. You can get
+prices and other information about cryptocurrencies and crypto
+exchanges. Check <https://docs.cryptowat.ch/rest-api> for a detailed
+documentation. The API is free of charge and does not require you to
+create an API key. For example, you can easily retrieve historical
+prices for all major cryptocurrencies.
+
 ## Installation
 
 You can install the released version of cryptowatchR from

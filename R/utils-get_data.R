@@ -9,7 +9,9 @@ get_data <- function(...) {
 
   path <- file.path(path, type[[2]])
 
-  if (!is.null(type[[1]])) path <- file.path(path, type[[1]])
+  if ( !is.null(type[[1]]) ) path <- file.path(path, type[[1]])
+
+  if ( !is.null(type[[3]]) ) path <- paste0(path, "?apikey=", type[[3]])
 
   request <- httr::GET(path)
 

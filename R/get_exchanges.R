@@ -2,8 +2,9 @@
 #'
 #' Get information on exchanges.
 #'
-#' @usage get_exchanges(exchange = NULL)
-#' @param exchange A string containing an exchange symbol, e.g. \emph{kraken} (Optional argument). Run \code{get_exchanges()} to get a list of exchanges.
+#' @usage get_exchanges(exchange = NULL, api_key = NULL)
+#' @param exchange A string containing an exchange symbol, e.g. \emph{kraken} (optional argument). Run \code{get_exchanges()} to get a list of exchanges.
+#' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
 #'
 #' @return A list or data.frame containing data on exchanges.
 #'
@@ -18,9 +19,9 @@
 #' }
 #'
 #' @export
-get_exchanges <- function(exchange = NULL) {
+get_exchanges <- function(exchange = NULL, api_key = NULL) {
 
-  data <- get_data(exchange, "exchanges")
+  data <- get_data(exchange, "exchanges", api_key)
 
   return(data)
 

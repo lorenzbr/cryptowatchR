@@ -4,10 +4,12 @@
 \alias{get_pairs}
 \title{Get pair of currencies}
 \usage{
-get_pairs(pair = NULL)
+get_pairs(pair = NULL, api_key = NULL)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (optional argument). Run \code{get_pairs()} to get all available pairs of currencies.}
+
+\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 }
 \value{
 A list or data.frame containing data on pairs.

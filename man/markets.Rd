@@ -4,7 +4,7 @@
 \alias{markets}
 \title{Get prices of cryptocurrencies}
 \usage{
-markets(pair, params = NULL, exchange = "kraken", datetime = TRUE)
+markets(pair, params = NULL, exchange = "kraken", datetime = TRUE, api_key = NULL)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument).}
@@ -14,6 +14,8 @@ markets(pair, params = NULL, exchange = "kraken", datetime = TRUE)
 \item{exchange}{A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to choose other exchanges.}
 
 \item{datetime}{A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.}
+
+\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 }
 \value{
 A data.frame containing prices of a given pair of currencies.

@@ -2,11 +2,12 @@
 #'
 #' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
 #'
-#' @usage markets(pair, params = NULL, exchange = "kraken", datetime = TRUE)
+#' @usage markets(pair, params = NULL, exchange = "kraken", datetime = TRUE, api_key = NULL)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument).
 #' @param params A list containing \code{before}, \code{after} and \code{periods} which is measured in seconds (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #' @param exchange A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to choose other exchanges.
 #' @param datetime A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.
+#' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
 #'
 #' @return A data.frame containing prices of a given pair of currencies.
 #'
@@ -25,7 +26,7 @@
 #' }
 #'
 #' @export
-markets <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE) {
+markets <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, api_key = NULL) {
 
   route <- "ohlc"
 
@@ -36,7 +37,7 @@ markets <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE) {
 
   }
 
-  prices <- get_markets(route, pair, exchange, params)
+  prices <- get_markets(route, pair, exchange, params, api_key)
 
   df.prices <- data.frame(prices[[1]][[1]])
 

@@ -2,8 +2,9 @@
 #'
 #' Get asset information on cryptocurrencies.
 #'
-#' @usage get_assets(asset = NULL)
+#' @usage get_assets(asset = NULL, api_key = NULL)
 #' @param asset A string containing an asset symbol, e.g. \emph{btc} (optional argument). Run \code{get_assets()} to get all available assets.
+#' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
 #'
 #' @return A list or data.frame containing data on assets.
 #'
@@ -18,9 +19,9 @@
 #' }
 #'
 #' @export
-get_assets <- function(asset = NULL) {
+get_assets <- function(asset = NULL, api_key = NULL) {
 
-  data <- get_data(asset, "assets")
+  data <- get_data(asset, "assets", api_key)
 
   return(data)
 

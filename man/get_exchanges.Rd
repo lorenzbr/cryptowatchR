@@ -4,10 +4,12 @@
 \alias{get_exchanges}
 \title{Get exchange details}
 \usage{
-get_exchanges(exchange = NULL)
+get_exchanges(exchange = NULL, api_key = NULL)
 }
 \arguments{
-\item{exchange}{A string containing an exchange symbol, e.g. \emph{kraken} (Optional argument). Run \code{get_exchanges()} to get a list of exchanges.}
+\item{exchange}{A string containing an exchange symbol, e.g. \emph{kraken} (optional argument). Run \code{get_exchanges()} to get a list of exchanges.}
+
+\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 }
 \value{
 A list or data.frame containing data on exchanges.

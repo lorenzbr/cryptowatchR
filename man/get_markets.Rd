@@ -4,7 +4,7 @@
 \alias{get_markets}
 \title{Get prices of cryptocurrencies}
 \usage{
-get_markets(route, pair = NULL, exchange = NULL, params = NULL)
+get_markets(route, pair = NULL, exchange = NULL, params = NULL, api_key = NULL)
 }
 \arguments{
 \item{route}{A string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument).}
@@ -14,6 +14,8 @@ get_markets(route, pair = NULL, exchange = NULL, params = NULL)
 \item{exchange}{A string containing the exchange (optional argument). Run \code{get_exchanges()} to choose an exchange.}
 
 \item{params}{A list containing query parameters. E.g., for the route \emph{ohlc}, this is \code{before}, \code{after} and \code{periods} (optional). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.}
+
+\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 }
 \value{
 A list containing markets data.

@@ -89,5 +89,6 @@ You can also submit bug reports and suggestions via e-mail or
 
 This R package is licensed under the GNU General Public License v3.0.
 
-See [here](https://github.com/lorenzbr/cryptowatchR/blob/main/LICENSE)
+See
+[here](https://github.com/lorenzbr/cryptowatchR/blob/main/LICENSE.md)
 for further information.

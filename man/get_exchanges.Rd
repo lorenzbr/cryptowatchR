@@ -7,18 +7,20 @@
 get_exchanges(exchange = NULL)
 }
 \arguments{
-\item{exchange}{A string containing an exchange symbol, e.g. \emph{kraken}. Optional argument.}
+\item{exchange}{A string containing an exchange symbol, e.g. \emph{kraken} (Optional argument). Run \code{get_exchanges()} to get a list of exchanges.}
 }
 \value{
-data A list or data.frame containing exchange data.
+A list or data.frame containing data on exchanges.
 }
 \description{
 Get information on exchanges.
 }
 \examples{
 \dontrun{
-exchange.data <- get_exchanges("kraken")
+# Get all available exchanges
 df.exchanges <- get_exchanges()
+# Get information on the exchange Kraken
+exchange.kraken <- get_exchanges("kraken")
 }
 
 }

@@ -7,18 +7,20 @@
 get_assets(asset = NULL)
 }
 \arguments{
-\item{asset}{A string containing an asset symbol, e.g. \emph{btc}. Optional argument.}
+\item{asset}{A string containing an asset symbol, e.g. \emph{btc} (optional argument). Run \code{get_assets()} to get all available assets.}
 }
 \value{
-data A list or data.frame containing asset data.
+A list or data.frame containing data on assets.
 }
 \description{
-Get asset information for cryptocurrencies.
+Get asset information on cryptocurrencies.
 }
 \examples{
 \dontrun{
-asset.data <- get_assets("btc")
+# Get all assets available on 'Cryptowatch'
 df.assets <- get_assets()
+# Bitcoin asset details
+asset.btc <- get_assets("btc")
 }
 
 }

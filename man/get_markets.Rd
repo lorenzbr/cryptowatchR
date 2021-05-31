@@ -2,32 +2,24 @@
 % Please edit documentation in R/get_markets.R
 \name{get_markets}
 \alias{get_markets}
-\title{Get prices for cryptocurrencies}
+\title{Get prices of cryptocurrencies}
 \usage{
-get_markets(pair, params = NULL, exchange = "kraken", route = "ohlc")
+get_markets(route, pair = NULL, exchange = NULL, params = NULL)
 }
 \arguments{
-\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument).}
+\item{route}{A string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument).}
 
-\item{params}{A list containing \code{before}, \code{after} and \code{periods} (optional). See \emph{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.}
+\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (optional argument).}
 
-\item{exchange}{A string containing the exchange. Default is \emph{kraken}.}
+\item{exchange}{A string containing the exchange (optional argument). Run \code{get_exchanges()} to choose an exchange.}
 
-\item{route}{A string containing market prices. Possible values: \emph{price, trades, summary, orderbook, ohlc}. Default is \emph{ohlc}.}
+\item{params}{A list containing query parameters. E.g., for the route \emph{ohlc}, this is \code{before}, \code{after} and \code{periods} (optional). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.}
 }
 \value{
-data A list containing price data for a given pair of currencies.
+A list containing markets data.
 }
 \description{
-Get price data for cryptocurrencies using the REST API of cryptowat.ch.
-}
-\examples{
-\dontrun{
-btcusd.data <- get_markets("btcusd")
-btcusd.data2 <- get_markets("btcusd", list(periods = 3600, before = 1609851600,
-                                           after = 1609506000))
-}
-
+Get prices of cryptocurrencies using the REST API of cryptowat.ch.
 }
 \references{
 See \url{https://docs.cryptowat.ch/rest-api} for further information

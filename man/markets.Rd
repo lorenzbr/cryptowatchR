@@ -2,33 +2,34 @@
 % Please edit documentation in R/markets.R
 \name{markets}
 \alias{markets}
-\title{Get prices for cryptocurrencies}
+\title{Get prices of cryptocurrencies}
 \usage{
-markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE)
+markets(pair, params = NULL, exchange = "kraken", datetime = TRUE)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument).}
 
-\item{params}{A list containing \code{before}, \code{after} and \code{periods} (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.}
+\item{params}{A list containing \code{before}, \code{after} and \code{periods} which is measured in seconds (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.}
 
-\item{exchange}{A string containing the exchange. Default is \emph{kraken}.}
-
-\item{route}{A string containing market prices. Possible values: \emph{price, trades, summary, orderbook, ohlc}. Default is \emph{ohlc}.}
+\item{exchange}{A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to choose other exchanges.}
 
 \item{datetime}{A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.}
 }
 \value{
-df.data A data.frame containing price data for a given pair of currencies.
+A data.frame containing prices of a given pair of currencies.
 }
 \description{
-Get data.frame with prices for cryptocurrencies using the REST API of cryptowat.ch.
+Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
 }
 \examples{
 \dontrun{
-df.btcusd.data <- markets("btcusd")
-df.btcusd.data2 <- markets("btcusd", list(periods = 3600, before = 1609851600,
+# Prices (every four hours) of Bitcoin in USD
+df.btcusd. <- markets("btcusd")
+# Hourly prices of Bitcoin in USD for a specific period
+df.btcusd.hourly <- markets("btcusd", list(periods = 3600, before = 1609851600,
                                           after = 1609506000), datetime = FALSE)
-df.btceur.data3 <- markets("btceur", list(periods = 86400, before = "2021-05-12",
+# Daily prices of Bitcoin in Euro for a specific period
+df.btceur.daily <- markets("btceur", list(periods = 86400, before = "2021-05-12",
                                           after = "2021-01-01"), datetime = TRUE)
 }
 

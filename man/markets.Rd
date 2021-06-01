@@ -24,7 +24,7 @@ markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 A data.frame containing prices of a given pair of currencies.
 }
 \description{
-Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
+Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data.
 }
 \examples{
 \dontrun{

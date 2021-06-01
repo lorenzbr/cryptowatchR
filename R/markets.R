@@ -1,6 +1,6 @@
 #' Get prices of cryptocurrencies
 #'
-#' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
+#' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data.
 #'
 #' @usage markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 #'         api_key = NULL, allowance = FALSE)

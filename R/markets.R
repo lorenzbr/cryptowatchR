@@ -1,6 +1,6 @@
 #' Get prices of cryptocurrencies
 #'
-#' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data.
+#' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data. The default is daily prices but can be changed with \code{periods}.
 #'
 #' @usage markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 #'         api_key = NULL, allowance = FALSE)
@@ -49,7 +49,7 @@ markets <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, a
 
     } else if ( is.null(params[["periods"]]) ) {
 
-      df.prices <- data.frame(prices[[1]][[13]])
+      df.prices <- data.frame(prices[[1]][names(prices) == "86400"])
 
     }
 
@@ -63,7 +63,7 @@ markets <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, a
 
     } else if ( is.null(params[["periods"]]) ) {
 
-      df.prices <- data.frame(prices[[13]])
+      df.prices <- data.frame(prices[names(prices) == "86400"])
 
     }
 

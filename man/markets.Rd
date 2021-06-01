@@ -5,7 +5,7 @@
 \title{Get prices of cryptocurrencies}
 \usage{
 markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
-       api_key = NULL, allowance = FALSE)
+        api_key = NULL, allowance = FALSE)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
@@ -18,7 +18,7 @@ markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 
 \item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 
-\item{allowance}{Logical (default is \emph{FALSE}). If \emph{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
+\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
 A data.frame containing prices of a given pair of currencies.

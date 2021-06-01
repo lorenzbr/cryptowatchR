@@ -5,7 +5,7 @@
 \title{Get prices of cryptocurrencies}
 \usage{
 get_markets(route, pair = NULL, exchange = NULL, params = NULL,
-       api_key = NULL, allowance = FALSE)
+            api_key = NULL, allowance = FALSE)
 }
 \arguments{
 \item{route}{A string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.}
@@ -18,7 +18,7 @@ get_markets(route, pair = NULL, exchange = NULL, params = NULL,
 
 \item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 
-\item{allowance}{Logical (default is \emph{FALSE}). If \emph{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
+\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
 A list containing markets data.

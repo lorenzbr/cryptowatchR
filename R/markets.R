@@ -3,13 +3,13 @@
 #' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
 #'
 #' @usage markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
-#'        api_key = NULL, allowance = FALSE)
+#'         api_key = NULL, allowance = FALSE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.
 #' @param params A list containing \code{before}, \code{after} and \code{periods} which is measured in seconds (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #' @param exchange A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.
 #' @param datetime A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.
 #' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
-#' @param allowance Logical (default is \emph{FALSE}). If \emph{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.
+#' @param allowance A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.
 #'
 #' @return A data.frame containing prices of a given pair of currencies.
 #'

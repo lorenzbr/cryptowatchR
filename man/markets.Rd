@@ -21,10 +21,10 @@ markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 \item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
-A data.frame containing prices of a given pair of currencies.
+A data.frame containing prices of a given pair of currencies. If allowance is \code{TRUE}, \code{markets()} returns a list.
 }
 \description{
-Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data. The default is daily prices but can be changed with \code{periods}.
+Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data. The default is daily prices but can be changed with \code{params} and \code{periods}.
 }
 \examples{
 \dontrun{

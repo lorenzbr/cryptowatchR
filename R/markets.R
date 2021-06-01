@@ -1,6 +1,6 @@
 #' Get prices of cryptocurrencies
 #'
-#' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data. The default is daily prices but can be changed with \code{periods}.
+#' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is fixed to \emph{ohlc} and returns OHLC candlestick price data. The default is daily prices but can be changed with \code{params} and \code{periods}.
 #'
 #' @usage markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 #'         api_key = NULL, allowance = FALSE)
@@ -11,7 +11,7 @@
 #' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
 #' @param allowance A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.
 #'
-#' @return A data.frame containing prices of a given pair of currencies.
+#' @return A data.frame containing prices of a given pair of currencies. If allowance is \code{TRUE}, \code{markets()} returns a list.
 #'
 #' @references See \url{https://docs.cryptowat.ch/rest-api} for further information.
 #' @seealso \code{\link{get_markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}

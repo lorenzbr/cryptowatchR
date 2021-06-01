@@ -5,7 +5,7 @@
 \title{Get prices of cryptocurrencies}
 \usage{
 markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
-               api_key = NULL, allowance = FALSE)
+       api_key = NULL, allowance = FALSE)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
@@ -28,12 +28,12 @@ Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.c
 }
 \examples{
 \dontrun{
-# Prices (every four hours) of Bitcoin in USD
+# Daily prices of Bitcoin in USD
 df.btcusd <- markets("btcusd")
-# Hourly prices of Bitcoin in USD for a specific period
+# Hourly prices of Bitcoin in USD for a specific time period
 df.btcusd.hourly <- markets("btcusd", list(periods = 3600, before = 1609851600,
                                           after = 1609506000), datetime = FALSE)
-# Daily prices of Bitcoin in Euro for a specific period
+# Daily prices of Bitcoin in Euro for a specific time period
 df.btceur.daily <- markets("btceur", list(periods = 86400, before = "2021-05-12",
                                           after = "2021-01-01"), datetime = TRUE)
 }

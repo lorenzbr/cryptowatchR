@@ -3,7 +3,7 @@
 #' Get prices of cryptocurrencies using the REST API of cryptowat.ch.
 #'
 #' @usage get_markets(route, pair = NULL, exchange = NULL, params = NULL,
-#'                    api_key = NULL, allowance = FALSE)
+#'        api_key = NULL, allowance = FALSE)
 #' @param route A string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (optional argument). Run \code{get_pairs()} to find other available pairs.
 #' @param exchange A string containing the exchange (optional argument). Run \code{get_exchanges()} to find other available exchanges.
@@ -17,10 +17,10 @@
 #' @seealso \code{\link{markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
 #' @examples
 #' \dontrun{
-#' # Prices (every four hours) of Bitcoin in USD
-#' btcusd.ohlc <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken")
-#' # Hourly prices of Bitcoin in USD for a specific period
-#' btcusd.ohlc2 <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken",
+#' # Prices of Bitcoin in USD for all periods
+#' btcusd.ohlc.all <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken")
+#' # Hourly prices of Bitcoin in USD for a specific time period
+#' btcusd.ohlc.hourly <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken",
 #'                             list(periods = 3600, before = 1609851600, after = 1609506000))
 #' }
 #'

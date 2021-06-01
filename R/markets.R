@@ -3,7 +3,7 @@
 #' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
 #'
 #' @usage markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
-#'                api_key = NULL, allowance = FALSE)
+#'        api_key = NULL, allowance = FALSE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.
 #' @param params A list containing \code{before}, \code{after} and \code{periods} which is measured in seconds (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #' @param exchange A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.
@@ -17,12 +17,12 @@
 #' @seealso \code{\link{get_markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
 #' @examples
 #' \dontrun{
-#' # Prices (every four hours) of Bitcoin in USD
+#' # Daily prices of Bitcoin in USD
 #' df.btcusd <- markets("btcusd")
-#' # Hourly prices of Bitcoin in USD for a specific period
+#' # Hourly prices of Bitcoin in USD for a specific time period
 #' df.btcusd.hourly <- markets("btcusd", list(periods = 3600, before = 1609851600,
 #'                                           after = 1609506000), datetime = FALSE)
-#' # Daily prices of Bitcoin in Euro for a specific period
+#' # Daily prices of Bitcoin in Euro for a specific time period
 #' df.btceur.daily <- markets("btceur", list(periods = 86400, before = "2021-05-12",
 #'                                           after = "2021-01-01"), datetime = TRUE)
 #' }
@@ -43,13 +43,29 @@ markets <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, a
 
   if (allowance) {
 
-    df.prices <- data.frame(prices[[1]][[1]])
+    if ( !is.null(params[["periods"]]) ) {
+
+      df.prices <- data.frame(prices[[1]][[1]])
+
+    } else if ( is.null(params[["periods"]]) ) {
+
+      df.prices <- data.frame(prices[[1]][[13]])
+
+    }
 
     allowance.data <- prices[[2]]
 
   } else if (allowance == FALSE) {
 
-    df.prices <- data.frame(prices[[1]])
+    if ( !is.null(params[["periods"]]) ) {
+
+      df.prices <- data.frame(prices[[1]])
+
+    } else if ( is.null(params[["periods"]]) ) {
+
+      df.prices <- data.frame(prices[[13]])
+
+    }
 
   }
 

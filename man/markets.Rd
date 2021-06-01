@@ -4,18 +4,21 @@
 \alias{markets}
 \title{Get prices of cryptocurrencies}
 \usage{
-markets(pair, params = NULL, exchange = "kraken", datetime = TRUE, api_key = NULL)
+markets(pair, params = NULL, exchange = "kraken", datetime = TRUE,
+               api_key = NULL, allowance = FALSE)
 }
 \arguments{
-\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument).}
+\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
 
 \item{params}{A list containing \code{before}, \code{after} and \code{periods} which is measured in seconds (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.}
 
-\item{exchange}{A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to choose other exchanges.}
+\item{exchange}{A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
 
 \item{datetime}{A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.}
 
 \item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+
+\item{allowance}{Logical (default is \emph{FALSE}). If \emph{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
 A data.frame containing prices of a given pair of currencies.
@@ -26,7 +29,7 @@ Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.c
 \examples{
 \dontrun{
 # Prices (every four hours) of Bitcoin in USD
-df.btcusd. <- markets("btcusd")
+df.btcusd <- markets("btcusd")
 # Hourly prices of Bitcoin in USD for a specific period
 df.btcusd.hourly <- markets("btcusd", list(periods = 3600, before = 1609851600,
                                           after = 1609506000), datetime = FALSE)

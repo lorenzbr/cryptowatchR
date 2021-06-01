@@ -2,9 +2,10 @@
 #'
 #' Get details on pairs of (crypto)currencies.
 #'
-#' @usage get_pairs(pair = NULL, api_key = NULL)
+#' @usage get_pairs(pair = NULL, api_key = NULL, allowance = FALSE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (optional argument). Run \code{get_pairs()} to get all available pairs of currencies.
 #' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
+#' @param allowance Logical (default is \emph{FALSE}). If \emph{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.
 #'
 #' @return A list or data.frame containing data on pairs.
 #'
@@ -19,9 +20,9 @@
 #' }
 #'
 #' @export
-get_pairs <- function(pair = NULL, api_key = NULL) {
+get_pairs <- function(pair = NULL, api_key = NULL, allowance = FALSE) {
 
-  data <- get_data(pair, "pairs", api_key)
+  data <- get_data(pair, "pairs", api_key, allowance)
 
   return(data)
 

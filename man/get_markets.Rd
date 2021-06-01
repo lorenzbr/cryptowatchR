@@ -4,24 +4,37 @@
 \alias{get_markets}
 \title{Get prices of cryptocurrencies}
 \usage{
-get_markets(route, pair = NULL, exchange = NULL, params = NULL, api_key = NULL)
+get_markets(route, pair = NULL, exchange = NULL, params = NULL,
+                   api_key = NULL, allowance = FALSE)
 }
 \arguments{
-\item{route}{A string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument).}
+\item{route}{A string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.}
 
-\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (optional argument).}
+\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (optional argument). Run \code{get_pairs()} to find other available pairs.}
 
-\item{exchange}{A string containing the exchange (optional argument). Run \code{get_exchanges()} to choose an exchange.}
+\item{exchange}{A string containing the exchange (optional argument). Run \code{get_exchanges()} to find other available exchanges.}
 
 \item{params}{A list containing query parameters. E.g., for the route \emph{ohlc}, this is \code{before}, \code{after} and \code{periods} (optional). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.}
 
 \item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+
+\item{allowance}{Logical (default is \emph{FALSE}). If \emph{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
 A list containing markets data.
 }
 \description{
 Get prices of cryptocurrencies using the REST API of cryptowat.ch.
+}
+\examples{
+\dontrun{
+# Prices (every four hours) of Bitcoin in USD
+btcusd.ohlc <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken")
+# Hourly prices of Bitcoin in USD for a specific period
+btcusd.ohlc2 <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken",
+                            list(periods = 3600, before = 1609851600, after = 1609506000))
+}
+
 }
 \references{
 See \url{https://docs.cryptowat.ch/rest-api} for further information

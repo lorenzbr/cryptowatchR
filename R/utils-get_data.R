@@ -7,11 +7,16 @@ get_data <- function(...) {
 
   type <- list(...)
 
-  path <- file.path(path, type[[2]])
+  input <- type[[1]]
+  endpoint <- type[[2]]
+  api_key <- type[[3]]
+  allowance <- type[[4]]
 
-  if ( !is.null(type[[1]]) ) path <- file.path(path, type[[1]])
+  path <- file.path(path, endpoint)
 
-  if ( !is.null(type[[3]]) ) path <- paste0(path, "?apikey=", type[[3]])
+  if ( !is.null(input) ) path <- file.path(path, input)
+
+  if ( !is.null(api_key) ) path <- paste0(path, "?apikey=", api_key)
 
   request <- httr::GET(path)
 
@@ -23,7 +28,7 @@ get_data <- function(...) {
 
   if (!grepl("^2", as.character(request$status_code))) stop(request$status_code, " ", data$error)
 
-  data <- data[[1]]
+  if (allowance == FALSE) data <- data[[1]]
 
   return(data)
 

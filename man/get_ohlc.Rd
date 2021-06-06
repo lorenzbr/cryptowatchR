@@ -21,7 +21,7 @@ get_ohlc(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 \item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
-A data.frame containing prices of a given pair of currencies. If allowance is \code{TRUE}, \code{get_ohlc()} returns a list.
+A data.frame containing OHLC candlestick prices of a given pair of currencies. If allowance is \code{TRUE}, \code{get_ohlc()} returns a list.
 }
 \description{
 Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{ohlc} and returns OHLC candlestick prices. The default is daily prices but can be changed with \code{params} and \code{periods}.

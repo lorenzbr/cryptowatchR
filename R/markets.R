@@ -30,6 +30,8 @@
 #' @export
 markets <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, api_key = NULL, allowance = FALSE) {
 
+  .Deprecated("get_ohlc")
+
   route <- "ohlc"
 
   if (datetime) {

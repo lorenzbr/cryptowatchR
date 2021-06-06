@@ -16,7 +16,7 @@ get_current_price(pair, exchange = "kraken", api_key = NULL, allowance = FALSE)
 \item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
-Current price of a given pair of currencies. If allowance is \code{TRUE}, \code{get_ohlc()} returns a list.
+Current price of a given pair of currencies. If allowance is \code{TRUE}, \code{get_current_price()} returns a list.
 }
 \description{
 Get current price of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{price} or \emph{prices} and returns the current price of a given pair or current prices of all pairs.

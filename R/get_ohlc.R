@@ -11,7 +11,7 @@
 #' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
 #' @param allowance A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.
 #'
-#' @return A data.frame containing prices of a given pair of currencies. If allowance is \code{TRUE}, \code{get_ohlc()} returns a list.
+#' @return A data.frame containing OHLC candlestick prices of a given pair of currencies. If allowance is \code{TRUE}, \code{get_ohlc()} returns a list.
 #'
 #' @references See \url{https://docs.cryptowat.ch/rest-api} for further information.
 #' @seealso \code{\link{get_markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
@@ -30,8 +30,6 @@
 #' @export
 get_ohlc <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, api_key = NULL, allowance = FALSE) {
 
-  route <- "ohlc"
-
   if (datetime) {
 
     if ( !is.null(params[["before"]]) ) params$before <- as.numeric(as.POSIXct(params$before))
@@ -39,7 +37,7 @@ get_ohlc <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, 
 
   }
 
-  prices <- get_markets(route, pair, exchange, params, api_key, allowance)
+  prices <- get_markets(route = "ohlc", pair, exchange, params, api_key, allowance)
 
   if (allowance) {
 
@@ -73,7 +71,16 @@ get_ohlc <- function(pair, params = NULL, exchange = "kraken", datetime = TRUE, 
 
   if (datetime) df.prices$CloseTime <- lubridate::as_datetime(df.prices$CloseTime)
 
-  if (allowance) { output <- list(result = df.prices, allowance = allowance.list) } else if (allowance == FALSE) { output <- df.prices }
+
+  if (allowance) {
+
+    output <- list(result = df.prices, allowance = allowance.list)
+
+  } else if (allowance == FALSE) {
+
+    output <- df.prices
+
+  }
 
   return(output)
 

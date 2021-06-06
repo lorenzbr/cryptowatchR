@@ -8,7 +8,7 @@
 #' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
 #' @param allowance A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.
 #'
-#' @return Current price of a given pair of currencies. If allowance is \code{TRUE}, \code{get_ohlc()} returns a list.
+#' @return Current price of a given pair of currencies. If allowance is \code{TRUE}, \code{get_current_price()} returns a list.
 #'
 #' @references See \url{https://docs.cryptowat.ch/rest-api} for further information.
 #' @seealso \code{\link{get_markets}}, \code{\link{get_ohlc}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
@@ -23,7 +23,8 @@ get_current_price <- function(pair = NULL, exchange = "kraken", api_key = NULL, 
 
   if ( !is.null(pair) ) route <- "price" else if ( is.null(pair) ) route <- "prices"
 
-  prices <- get_markets(route = route, pair = pair, exchange = exchange, api_key = api_key, allowance = allowance)
+  prices <- get_markets(route = route, pair = pair, exchange = exchange,
+                        api_key = api_key, allowance = allowance)
 
   if (allowance) {
 

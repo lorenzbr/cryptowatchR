@@ -5,7 +5,7 @@
 \title{Get order book of cryptocurrencies}
 \usage{
 get_orderbook(pair, depth = NULL, span = NULL, limit = NULL,
-        exchange = "kraken", api_key = NULL, allowance = FALSE)
+              exchange = "kraken", api_key = NULL, allowance = FALSE)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}

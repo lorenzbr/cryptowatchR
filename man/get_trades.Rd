@@ -5,7 +5,7 @@
 \title{Get trades of cryptocurrencies}
 \usage{
 get_trades(pair, since = NULL, limit = NULL, exchange = "kraken",
-        datetime = TRUE, api_key = NULL, allowance = FALSE)
+           datetime = TRUE, api_key = NULL, allowance = FALSE)
 }
 \arguments{
 \item{pair}{A character string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}

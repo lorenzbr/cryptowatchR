@@ -3,7 +3,7 @@
 #' Get the order book of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{orderbook} and returns two arrays, bids and asks. See \url{https://docs.cryptowat.ch/rest-api/markets/order-book} for further information.
 #'
 #' @usage get_orderbook(pair, depth = NULL, span = NULL, limit = NULL,
-#'         exchange = "kraken", api_key = NULL, allowance = FALSE)
+#'               exchange = "kraken", api_key = NULL, allowance = FALSE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.
 #' @param depth A number: Only return orders cumulating up to this size (optional).
 #' @param span A number: Only return orders within this percentage of the midpoint (optional). Example: 0.5 (meaning 0.5 percent).

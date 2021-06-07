@@ -3,11 +3,11 @@
 #' Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{ohlc} and returns OHLC candlestick prices. The default is daily prices but can be changed with \code{periods}. See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.
 #'
 #' @usage get_ohlc(pair, before = NULL, after = NULL, periods = NULL, exchange = "kraken",
-#'         datetime = TRUE, api_key = NULL, allowance = FALSE)
+#'          datetime = TRUE, api_key = NULL, allowance = FALSE)
 #' @param pair A character string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.
 #' @param before An integer if \emph{datetime} is \code{FALSE} and a character string if it is \code{TRUE}: Only returns candles opening before this time (optional).
 #' @param after An integer if \emph{datetime} is \code{FALSE} and a character string if it is \code{TRUE}: Only returns candles opening after this time (optional).
-#' @param periods A integer or integer vector. Only return these periods which are measured in seconds (optional). Examples: 60, 180, 108000.
+#' @param periods A integer or integer vector. Only return these periods. Periods are measured in seconds (optional). Examples: 60, 180, 108000.
 #' @param exchange A character string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.
 #' @param datetime A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.
 #' @param api_key A character string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.

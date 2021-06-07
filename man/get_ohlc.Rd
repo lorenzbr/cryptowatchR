@@ -5,7 +5,7 @@
 \title{Get prices of cryptocurrencies}
 \usage{
 get_ohlc(pair, before = NULL, after = NULL, periods = NULL, exchange = "kraken",
-        datetime = TRUE, api_key = NULL, allowance = FALSE)
+         datetime = TRUE, api_key = NULL, allowance = FALSE)
 }
 \arguments{
 \item{pair}{A character string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
@@ -14,7 +14,7 @@ get_ohlc(pair, before = NULL, after = NULL, periods = NULL, exchange = "kraken",
 
 \item{after}{An integer if \emph{datetime} is \code{FALSE} and a character string if it is \code{TRUE}: Only returns candles opening after this time (optional).}
 
-\item{periods}{A integer or integer vector. Only return these periods which are measured in seconds (optional). Examples: 60, 180, 108000.}
+\item{periods}{A integer or integer vector. Only return these periods. Periods are measured in seconds (optional). Examples: 60, 180, 108000.}
 
 \item{exchange}{A character string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
 

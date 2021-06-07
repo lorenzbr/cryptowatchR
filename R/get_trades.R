@@ -3,7 +3,7 @@
 #' Get data.frame with trades of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{trades} and returns trades for a specified market. See \url{https://docs.cryptowat.ch/rest-api/markets/trades} for further information.
 #'
 #' @usage get_trades(pair, since = NULL, limit = NULL, exchange = "kraken",
-#'         datetime = TRUE, api_key = NULL, allowance = FALSE)
+#'            datetime = TRUE, api_key = NULL, allowance = FALSE)
 #' @param pair A character string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.
 #' @param since An integer if \emph{datetime} is \code{FALSE} and a character string if it is \code{TRUE}: Limit the response to trades after this date (optional). This can only be used to filter recent trades. Historical trades cannot be retrieved.
 #' @param limit An integer: Limit the number of trades (optional). Max: 1000.

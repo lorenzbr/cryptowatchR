@@ -4,32 +4,32 @@
 \alias{get_summary}
 \title{Get 24-hour summary of cryptocurrencies}
 \usage{
-get_summary(pair, params = NULL, exchange = "kraken", api_key = NULL, allowance = FALSE)
+get_summary(pair, keyBy = NULL, exchange = "kraken", api_key = NULL, allowance = FALSE)
 }
 \arguments{
-\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
+\item{pair}{A character string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
 
-\item{params}{A list containing \code{keyBy}. Values are either \emph{id} or \emph{symbols}. See \url{https://docs.cryptowat.ch/rest-api/markets/summary} for further information.}
+\item{keyBy}{A single character string. Possible values are are either \emph{id} or \emph{symbols}.}
 
-\item{exchange}{A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
+\item{exchange}{A character string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
 
-\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+\item{api_key}{A character string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 
 \item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
 \value{
-Current 24-hour summary of a given pair of currencies. If allowance is \code{TRUE}, \code{get_summary()} returns a list.
+Current 24-hour summary of a given pair of currencies. If allowance is \code{TRUE}, \code{get_summary()} returns a list with additional information on allowances.
 }
 \description{
-Get 24-hour summary of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{summary} or \emph{summaries} and returns the current 24-hour summary of a given pair or a summary of all pairs.
+Get 24-hour summary of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{summary} or \emph{summaries} and returns the current 24-hour summary of a given pair or a summary of all pairs. See \url{https://docs.cryptowat.ch/rest-api/markets/summary} for further information.
 }
 \examples{
 \dontrun{
 # 24h-hour summary of cryptocurrency pairs
 summary <- get_summary("btcusd")
 summaries <- get_summary()
-summaries2 <- get_summary(params = list(keyBy = "id"))
-summaries3 <- get_summary(params = list(keyBy = "symbols"))
+summaries2 <- get_summary(keyBy = "id")
+summaries3 <- get_summary(keyBy = "symbols")
 }
 }
 \references{

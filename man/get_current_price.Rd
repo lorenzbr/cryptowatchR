@@ -19,7 +19,7 @@ get_current_price(pair, exchange = "kraken", api_key = NULL, allowance = FALSE)
 Current price of a given pair of currencies. If allowance is \code{TRUE}, \code{get_current_price()} returns a list.
 }
 \description{
-Get current price of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{price} or \emph{prices} and returns the current price of a given pair or current prices of all pairs.
+Get current price of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{price} or \emph{prices} and returns the current price of a given pair or current prices of all pairs. See \url{https://docs.cryptowat.ch/rest-api/markets/price} for further information.
 }
 \examples{
 \dontrun{

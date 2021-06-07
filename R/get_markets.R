@@ -4,11 +4,11 @@
 #'
 #' @usage get_markets(route, pair = NULL, exchange = NULL, params = NULL,
 #'             api_key = NULL, allowance = FALSE)
-#' @param route A string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.
-#' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (optional argument). Run \code{get_pairs()} to find other available pairs.
-#' @param exchange A string containing the exchange (optional argument). Run \code{get_exchanges()} to find other available exchanges.
+#' @param route A character string containing a market endpoint. Possible values: \emph{price, prices, trades, summary, summaries, orderbook, orderbook/liquidity, orderbooks/calculator, ohlc} (required argument). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.
+#' @param pair A character string containing a pair symbol, e.g. \emph{btcusd} (optional argument). Run \code{get_pairs()} to find other available pairs.
+#' @param exchange A character string containing the exchange (optional argument). Run \code{get_exchanges()} to find other available exchanges.
 #' @param params A list containing query parameters. E.g., for the route \emph{ohlc}, this is \code{before}, \code{after} and \code{periods} (optional). See \emph{https://docs.cryptowat.ch/rest-api/markets} for further information.
-#' @param api_key A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
+#' @param api_key A character string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.
 #' @param allowance A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.
 #'
 #' @return A list containing markets data.

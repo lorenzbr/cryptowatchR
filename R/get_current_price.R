@@ -1,6 +1,6 @@
 #' Get current price of cryptocurrencies
 #'
-#' Get current price of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{price} or \emph{prices} and returns the current price of a given pair or current prices of all pairs.
+#' Get current price of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{price} or \emph{prices} and returns the current price of a given pair or current prices of all pairs. See \url{https://docs.cryptowat.ch/rest-api/markets/price} for further information.
 #'
 #' @usage get_current_price(pair, exchange = "kraken", api_key = NULL, allowance = FALSE)
 #' @param pair A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.

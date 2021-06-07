@@ -49,8 +49,10 @@ devtools::install_github("lorenzbr/cryptowatchR")
 
 ## Usage
 
-```R
+```r
 ## Examples
+
+library(cryptowatchR)
 
 # Settings
 exchange <- "kraken"
@@ -58,71 +60,98 @@ pair <- "btcusd"
 route <- "ohlc"
 
 # Daily prices for longest possible time period
-params1 <- list(periods = 86400)
-markets.btcusd <- cryptowatchR::get_markets(route, pair, exchange, params1)
+markets.btcusd <- get_markets(route, pair, exchange, list(periods = 86400))
 
 # Daily prices of Bitcoin in USD
-df.btcusd <- cryptowatchR::markets(pair)
+df.ohlc.daily <- get_ohlc(pair)
 
 # Hourly prices
-params2 <- list(periods = 3600, before = 1609851600, after = 1609506000)
-df.btcusd2 <- cryptowatchR::markets(pair, params2, exchange, datetime = FALSE)
+df.ohlc.hourly <- get_ohlc(pair, periods = 3600, before = 1609851600, after = 1609506000,
+                           exchange, datetime = FALSE)
 
 # Hourly prices using date/datetime variables
-params3 <- list(periods = 3600, before = "2021-01-05", after = "2021-01-01")
-df.btcusd3 <- cryptowatchR::markets(pair, params3, exchange, datetime = TRUE)
+df.ohlc.hourly.datetime <- get_ohlc(pair, periods = 3600, before = "2021-01-05", after = "2021-01-01",
+                                    exchange, datetime = TRUE)
 
 # Daily prices using date/datetime variables
-params4 <- list(periods = 86400, before = "2021-05-12", after = "2021-01-01")
-df.btcusd4 <- cryptowatchR::markets(pair, params4, exchange, datetime = TRUE)
+df.ohlc.daily.datetime <- get_ohlc(pair, periods = 86400, before = "2021-05-12", after = "2021-01-01",
+                       exchange, datetime = TRUE)
 
 # Daily prices using POSIX time
-params5 <- list(periods = 86400, before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")),
-                after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")))
-df.btcusd5 <- cryptowatchR::markets(pair, params5, exchange, datetime = FALSE)
+df.ohlc.daily.posix <- get_ohlc(pair, periods = 86400, before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")),
+                                after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")), exchange, datetime = FALSE)
 
 # Current market price
-markets.price.btcusd <- cryptowatchR::get_markets(route = "price", pair, exchange)
+current.price <- get_current_price("btcusd")
+current.prices <- get_current_price()
+
+## Get trades
+# Most recent trades (default is 50)
+trades <- get_trades(pair)
+# 100 trades
+trades.100 <- get_trades(pair, limit = 100, datetime = FALSE)
+# 200 trades (maximum is 1000) since 1589571417 (unix timestamp)
+trades.unix <- get_trades(pair, since = 1589571417, limit = 200, datetime = FALSE)
+# 1000 trades and datetime is TRUE
+trades.datetime <- get_trades(pair, since = "2021-06-01", limit = 1000)
+
+# 24h-hour summary of cryptocurrency pairs
+summary <- get_summary("btcusd")
+summaries <- get_summary()
+summaries.id <- get_summary(keyBy = "id")
+summaries.symbols <- get_summary(keyBy = "symbols")
+
+# Orderbook for Bitcoin-USD (bid and ask with Price and Amount)
+orderbook <- get_orderbook(pair, exchange = exchange)
+orderbook.depth <- get_orderbook(pair, exchange = exchange, depth = 100)
+orderbook.span <- get_orderbook(pair, exchange = exchange, span = 0.5)
+orderbook.limit <- get_orderbook(pair, exchange = exchange, limit = 1)
+
+# Get liquidity sums in the order book of Bitcoin in USD
+liquidity <- get_orderbook_liquidity("btcusd")
+
+# Asset information
+df.assets <- get_assets()
+asset.btc <- get_assets("btc")
+
+# Information on pairs of currencies
+df.pairs <- get_pairs()
+pair.btcusd <- get_pairs("btcusd")
+
+# Information on crypto exchanges
+df.exchanges <- get_exchanges()
+exchange.kraken <- get_exchanges("kraken")
+
+# Current market price
+markets.price.btcusd <- get_markets(route = "price", pair, exchange)
 
 # All current market prices for all exchanges
-markets.price <- cryptowatchR::get_markets(route = "prices")
+markets.price <- get_markets(route = "prices")
 
 # Most recent trades (default is 50)
-markets.trades <- cryptowatchR::get_markets(route = "trades", pair, exchange)
+markets.trades <- get_markets(route = "trades", pair, exchange)
 
 # 200 Trades (maximum is 1000) since 1589571417
 params.prices <- list(since = 1589571417, limit = 200)
-markets.trades2 <- cryptowatchR::get_markets(route = "trades", pair, exchange, params.prices)
+markets.trades2 <- get_markets(route = "trades", pair, exchange, params.prices)
 
 # Last price and other stats for Bitcoin-USD pair
-markets.summary.btcusd <- cryptowatchR::get_markets(route = "summary", pair, exchange)
+markets.summary.btcusd <- get_markets(route = "summary", pair, exchange)
 
 # Summaries for every pair and every exchange
-markets.summaries <- cryptowatchR::get_markets(route = "summaries")
-markets.summaries2 <- cryptowatchR::get_markets(route = "summaries", params = list(keyBy = "id"))
-markets.summaries3 <- cryptowatchR::get_markets(route = "summaries", params = list(keyBy = "symbols"))
+markets.summaries <- get_markets(route = "summaries")
+markets.summaries.id <- get_markets(route = "summaries", params = list(keyBy = "id"))
+markets.summaries.symbols <- get_markets(route = "summaries", params = list(keyBy = "symbols"))
 
 # Orderbook for Bitcoin-USD (bid and ask with Price and Amount)
-markets.oderbook <- cryptowatchR::get_markets(route = "orderbook", pair, exchange)
-markets.oderbook.depth <- cryptowatchR::get_markets(route = "orderbook", pair, exchange,
+markets.orderbook <- get_markets(route = "orderbook", pair, exchange)
+markets.orderbook.depth <- get_markets(route = "orderbook", pair, exchange,
                                                     params = list(depth = 100))
-markets.oderbook.span <- cryptowatchR::get_markets(route = "orderbook", pair, exchange, params = list(span = 0.5))
-markets.oderbook.limit <- cryptowatchR::get_markets(route = "orderbook", pair, exchange, params = list(limit = 1))
-markets.oderbook.liquidity <- cryptowatchR::get_markets(route = "orderbook/liquidity", pair, exchange)
-markets.oderbook.calculator <- cryptowatchR::get_markets(route = "orderbook/calculator", pair, exchange,
+markets.orderbook.span <- get_markets(route = "orderbook", pair, exchange, params = list(span = 0.5))
+markets.orderbook.limit <- get_markets(route = "orderbook", pair, exchange, params = list(limit = 1))
+markets.orderbook.liquidity <- get_markets(route = "orderbook/liquidity", pair, exchange)
+markets.orderbook.calculator <- get_markets(route = "orderbook/calculator", pair, exchange,
                                                          params = list(amount = 1))
-
-# Asset information
-df.assets <- cryptowatchR::get_assets()
-asset.btc <- cryptowatchR::get_assets("btc")
-
-# Information on pairs of currencies
-df.pairs <- cryptowatchR::get_pairs()
-pair.btcusd <- cryptowatchR::get_pairs("btcusd")
-
-# Information on crypto exchanges
-df.exchanges <- cryptowatchR::get_exchanges()
-exchange.kraken <- cryptowatchR::get_exchanges("kraken")
 ```
 
 

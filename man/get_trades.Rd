@@ -4,19 +4,21 @@
 \alias{get_trades}
 \title{Get trades of cryptocurrencies}
 \usage{
-get_trades(pair, params = NULL, exchange = "kraken", datetime = TRUE,
-        api_key = NULL, allowance = FALSE)
+get_trades(pair, since = NULL, limit = NULL, exchange = "kraken",
+        datetime = TRUE, api_key = NULL, allowance = FALSE)
 }
 \arguments{
-\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
+\item{pair}{A character string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
 
-\item{params}{A list containing \code{since} and \code{limit}. The former is a date can be used to limit the response to trades after the date. This filter cannot be used to get historical trades. The latter is an integer and limits the number of trades in the response (max: 1000). See \url{https://docs.cryptowat.ch/rest-api/markets/trades} for further information.}
+\item{since}{An integer if \emph{datetime} is \code{FALSE} and a character string if it is \code{TRUE}: Limit the response to trades after this date (optional). This can only be used to filter recent trades. Historical trades cannot be retrieved.}
 
-\item{exchange}{A string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
+\item{limit}{An integer: Limit the number of trades (optional). Max: 1000.}
+
+\item{exchange}{A character string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
 
 \item{datetime}{A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.}
 
-\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+\item{api_key}{A character string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
 
 \item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
 }
@@ -24,18 +26,16 @@ get_trades(pair, params = NULL, exchange = "kraken", datetime = TRUE,
 A data.frame containing trades of a given pair of currencies. If allowance is \code{TRUE}, \code{get_trades()} returns a list.
 }
 \description{
-Get data.frame with trades of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{trades} and returns trades for a specified market.
+Get data.frame with trades of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{trades} and returns trades for a specified market. See \url{https://docs.cryptowat.ch/rest-api/markets/trades} for further information.
 }
 \examples{
 \dontrun{
 # Most recent trades (default is 50)
-markets.trades <- get_trades(pair)
+trades <- get_trades(pair)
 # 200 trades (maximum is 1000) since 1589571417 (unix timestamp)
-params.trades2 <- list(since = 1589571417, limit = 200)
-markets.trades2 <- get_trades(pair, params = params.trades2, datetime = FALSE)
+trades.unix <- get_trades(pair, since = 1589571417, limit = 200, datetime = FALSE)
 # 1000 trades and datetime is TRUE
-params.trades3 <- list(since = "2021-06-01", limit = 1000)
-markets.trades3 <- get_trades(pair, params = params.trades3)
+trades.datetime <- get_trades(pair, since = "2021-06-01", limit = 1000)
 }
 
 }

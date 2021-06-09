@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "lorenz.brachtendorf@gmx.de",
            comment = c(ORCID = "0000-0001-7066-0838"))
-Description: It provides an API wrapper for 'Cryptowatch'. Historical price data and other information on cryptocurrencies and crypto exchanges can be retrieved. API documentation: <https://docs.cryptowat.ch/rest-api>.
+Description: An API wrapper for 'Cryptowatch' to get prices and other information (e.g., volume, trades, order books, bid and ask prices, live quotes, and more) about cryptocurrencies and crypto exchanges. See <https://docs.cryptowat.ch/rest-api> for a detailed documentation.
 Imports:
     httr,
     jsonlite,

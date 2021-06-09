@@ -33,7 +33,6 @@ get_orderbook <- function(pair, depth = NULL, span = NULL, limit = NULL, exchang
                           api_key = NULL, allowance = FALSE) {
 
   params <- list(depth = depth, span = span, limit = limit)
-  # if ( is.null(params$depth) && is.null(params$span) && is.null(params$limit) ) params <- NULL
 
   orderbook <- get_markets(route = "orderbook", pair, exchange, params, api_key, allowance)
 

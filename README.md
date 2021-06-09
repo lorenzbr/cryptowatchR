@@ -19,11 +19,14 @@ An API wrapper for Cryptowatch written in R
 ## Introduction
 
 This R package provides a wrapper for the Cryptowatch API. You can get
-prices and other information about cryptocurrencies and crypto
+prices and other information (volume, trades, order books, bid and ask
+prices, live quotes, and more) about cryptocurrencies and crypto
 exchanges. Check <https://docs.cryptowat.ch/rest-api> for a detailed
 documentation. The API is free of charge and does not require you to
 create an API key. For example, you can easily retrieve historical
-prices for all major cryptocurrencies.
+prices for a large number of cryptocurrencies without setting up an
+account. However, for heavy users, this option is included in the
+package as well.
 
 ## Installation
 
@@ -104,6 +107,9 @@ orderbook.limit <- get_orderbook(pair, exchange = exchange, limit = 1)
 
 # Get liquidity sums in the order book of Bitcoin in USD
 liquidity <- get_orderbook_liquidity("btcusd")
+
+# Live quote for 50 Bitcoins
+calculator <- get_orderbook_calculator("btcusd", amount = 50)
 
 # Asset information
 df.assets <- get_assets()

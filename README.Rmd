@@ -78,8 +78,10 @@ df.ohlc.daily.datetime <- get_ohlc(pair, periods = 86400, before = "2021-05-12",
                        exchange, datetime = TRUE)
 
 # Daily prices using POSIX time
-df.ohlc.daily.posix <- get_ohlc(pair, periods = 86400, before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")),
-                                after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")), exchange, datetime = FALSE)
+df.ohlc.daily.posix <- get_ohlc(pair, periods = 86400, 
+                                before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")),
+                                after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")), 
+                                exchange, datetime = FALSE)
 
 # Current market price
 current.price <- get_current_price("btcusd")

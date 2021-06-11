@@ -1,4 +1,6 @@
-# cryptowatchR 0.1.0.9000
+# cryptowatchR 0.2.0.9000 (dev)
+
+# cryptowatchR 0.2.0
 
 * Now `get_markets()` works with all routes (`summary`, `summaries`, `price`, `prices`, `trades` and `orderbook`, `orderbook/liquidity` and `orderbook/calculator`).
 * New functions which are wrappers around `get_markets()`: `get_ohlc()`, `get_trades()`, `get_current_prices()`, `get_summary()`, `get_orderbook()`, `get_orderbook_liquidity()` and `get_orderbook_calculator()`

@@ -55,7 +55,6 @@ library(cryptowatchR)
 # Some settings
 exchange <- "kraken"
 pair <- "btcusd"
-route <- "ohlc"
 
 # Daily prices of Bitcoin in USD
 df.ohlc.daily <- get_ohlc(pair)

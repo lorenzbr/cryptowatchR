@@ -52,13 +52,10 @@ devtools::install_github("lorenzbr/cryptowatchR")
 
 library(cryptowatchR)
 
-# Settings
+# Some settings
 exchange <- "kraken"
 pair <- "btcusd"
 route <- "ohlc"
-
-# Daily prices for longest possible time period
-markets.btcusd <- get_markets(route, pair, exchange, list(periods = 86400))
 
 # Daily prices of Bitcoin in USD
 df.ohlc.daily <- get_ohlc(pair)
@@ -124,45 +121,11 @@ pair.btcusd <- get_pairs("btcusd")
 # Information on crypto exchanges
 df.exchanges <- get_exchanges()
 exchange.kraken <- get_exchanges("kraken")
-
-# Current market price
-markets.price.btcusd <- get_markets(route = "price", pair, exchange)
-
-# All current market prices for all exchanges
-markets.price <- get_markets(route = "prices")
-
-# Most recent trades (default is 50)
-markets.trades <- get_markets(route = "trades", pair, exchange)
-
-# 200 Trades (maximum is 1000) since 1589571417
-params.prices <- list(since = 1589571417, limit = 200)
-markets.trades2 <- get_markets(route = "trades", pair, exchange, params.prices)
-
-# Last price and other stats for Bitcoin-USD pair
-markets.summary.btcusd <- get_markets(route = "summary", pair, exchange)
-
-# Summaries for every pair and every exchange
-markets.summaries <- get_markets(route = "summaries")
-markets.summaries.id <- get_markets(route = "summaries", params = list(keyBy = "id"))
-markets.summaries.symbols <- get_markets(route = "summaries", params = list(keyBy = "symbols"))
-
-# Orderbook for Bitcoin-USD (bid and ask with Price and Amount)
-markets.orderbook <- get_markets(route = "orderbook", pair, exchange)
-markets.orderbook.depth <- get_markets(route = "orderbook", pair, exchange,
-                                                    params = list(depth = 100))
-markets.orderbook.span <- get_markets(route = "orderbook", pair, exchange, params = list(span = 0.5))
-markets.orderbook.limit <- get_markets(route = "orderbook", pair, exchange, params = list(limit = 1))
-markets.orderbook.liquidity <- get_markets(route = "orderbook/liquidity", pair, exchange)
-markets.orderbook.calculator <- get_markets(route = "orderbook/calculator", pair, exchange,
-                                                         params = list(amount = 1))
 ```
 
 ## Contact
 
-Please contact <lorenz.brachtendorf@gmx.de> if you want to contribute to
-this project.
-
-You can also submit bug reports and suggestions via e-mail or
+Please submit bug reports and suggestions via
 <https://github.com/lorenzbr/cryptowatchR/issues>
 
 ## License

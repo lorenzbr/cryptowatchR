@@ -60,11 +60,13 @@ pair <- "btcusd"
 df.ohlc.daily <- get_ohlc(pair)
 
 # Hourly prices
-df.ohlc.hourly <- get_ohlc(pair, periods = 3600, before = 1609851600, after = 1609506000,
+df.ohlc.hourly <- get_ohlc(pair, periods = 3600,
+                           before = as.numeric(as.POSIXct(Sys.Date())),
+                           after = as.numeric(as.POSIXct(Sys.Date() - 5)),
                            exchange, datetime = FALSE)
 
 # Hourly prices using date/datetime variables
-df.ohlc.hourly.datetime <- get_ohlc(pair, periods = 3600, before = "2021-01-05", after = "2021-01-01",
+df.ohlc.hourly.datetime <- get_ohlc(pair, periods = 3600, before = Sys.Date(), after = Sys.Date() - 5,
                                     exchange, datetime = TRUE)
 
 # Daily prices using date/datetime variables

@@ -35,8 +35,9 @@ Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.c
 # Daily prices of Bitcoin in USD
 df.ohlc <- get_ohlc("btcusd")
 # Hourly prices of Bitcoin in USD for a specific time period
-df.ohlc.hourly <- get_ohlc("btcusd", periods = 3600, before = 1609851600,
-                                          after = 1609506000, datetime = FALSE)
+df.ohlc.hourly <- get_ohlc("btcusd", periods = 3600, before = as.numeric(as.POSIXct(Sys.Date())),
+                                          after = as.numeric(as.POSIXct(Sys.Date() - 5)),
+                                          datetime = FALSE)
 # Daily prices of Bitcoin in Euro for a specific time period
 df.ohlc.daily <- get_ohlc("btceur", periods = 86400, before = "2021-05-12",
                                           after = "2021-01-01", datetime = TRUE)

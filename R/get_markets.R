@@ -21,7 +21,8 @@
 #' btcusd.ohlc.all <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken")
 #' # Hourly prices of Bitcoin in USD for a specific time period
 #' btcusd.ohlc.hourly <- get_markets(route = "ohlc", pair = "btcusd", exchange = "kraken",
-#'                             list(periods = 3600, before = 1609851600, after = 1609506000))
+#'                             list(periods = 3600, before = as.numeric(as.POSIXct(Sys.Date())),
+#'                                  after = as.numeric(as.POSIXct(Sys.Date() - 5))))
 #' }
 #'
 #' @export

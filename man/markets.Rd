@@ -4,31 +4,34 @@
 \alias{markets}
 \title{Get prices of cryptocurrencies}
 \usage{
-markets(pair, params = NULL, exchange = "kraken", route = "ohlc", datetime = TRUE)
+markets(pair, params = NULL, exchange = "kraken", route = "ohlc",
+datetime = TRUE)
 }
 \arguments{
 \item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument).}
 
-\item{params}{A list containing \code{before}, \code{after} and \code{periods} (optional). See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.}
+\item{params}{A list containing \code{before}, \code{after} and \code{periods} (optional).
+See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc} for further information.}
 
 \item{exchange}{A character string containing the exchange. Default is \emph{kraken}.}
 
 \item{route}{A character string containing the route. Default is \emph{ohlc}.}
 
-\item{datetime}{A logical. \code{TRUE} indicates that datetime type is used. \code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.}
+\item{datetime}{A logical. \code{TRUE} indicates that datetime type is used.
+\code{FALSE} indicates \emph{unix timestamp}. Default is \code{TRUE}.}
 }
 \value{
-A data.frame containing OHLC candlestick prices of a given pair of currencies.
+A data frame containing OHLC candlestick prices of a given pair of currencies.
 }
 \description{
-Get data.frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
+Get data frame with prices of cryptocurrencies using the REST API of cryptowat.ch.
 }
 \examples{
 \dontrun{
-df.ohlc.hourly <- markets("btcusd")
-df.ohlc.hourly2 <- markets("btcusd", list(periods = 3600, before = 1609851600,
+df_ohlc_hourly <- markets("btcusd")
+df_ohlc_hourly2 <- markets("btcusd", list(periods = 3600, before = 1609851600,
                                           after = 1609506000), datetime = FALSE)
-df.ohlc.daily <- markets("btceur", list(periods = 86400, before = "2021-05-12",
+df_ohlc_daily <- markets("btceur", list(periods = 86400, before = "2021-05-12",
                                           after = "2021-01-01"), datetime = TRUE)
 }
 
@@ -37,5 +40,6 @@ df.ohlc.daily <- markets("btceur", list(periods = 86400, before = "2021-05-12",
 See \url{https://docs.cryptowat.ch/rest-api} for further information.
 }
 \seealso{
-\code{\link{get_markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
+\code{\link{get_markets}}, \code{\link{get_assets}}, \code{\link{get_exchanges}},
+\code{\link{get_pairs}}
 }

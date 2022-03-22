@@ -21,40 +21,34 @@
 #' @export
 get_current_price <- function(pair = NULL, exchange = "kraken", api_key = NULL, allowance = FALSE) {
 
-  if ( !is.null(pair) ) route <- "price" else if ( is.null(pair) ) route <- "prices"
+  route <- ifelse(!is.null(pair), "price", "prices")
 
   prices <- get_markets(route = route, pair = pair, exchange = exchange,
                         api_key = api_key, allowance = allowance)
 
   if (allowance) {
 
-    allowance.list <- prices[[2]]
+    allowance_list <- prices[[2]]
     prices <- prices[[1]]
 
   }
 
 
-  if ( !is.null(pair) ) {
+  if (!is.null(pair)) {
 
-    if (allowance) { price.out <- prices } else if (allowance == FALSE) { price.out <- prices$price }
+    price_out <- ifelse(allowance, prices, prices$price)
 
-  } else if ( is.null(pair) ) {
+  } else if (is.null(pair)) {
 
-    price.out <- data.frame(name = names(prices), price = unlist(prices))
-    rownames(price.out) <- 1:nrow(price.out)
-
-  }
-
-
-  if (allowance) {
-
-    output <- list(result = price.out, allowance = allowance.list)
-
-  } else if (allowance == FALSE) {
-
-    output <- price.out
+    price_out <- data.frame(name = names(prices), price = unlist(prices))
+    rownames(price_out) <- 1:nrow(price_out)
 
   }
+
+
+  output <- ifelse(allowance,
+                   list(result = price_out, allowance = allowance_list),
+                   price_out)
 
   return(output)
 

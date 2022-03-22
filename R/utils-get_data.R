@@ -14,9 +14,9 @@ get_data <- function(...) {
 
   path <- file.path(path, endpoint)
 
-  if ( !is.null(input) ) path <- file.path(path, input)
+  if (!is.null(input)) path <- file.path(path, input)
 
-  if ( !is.null(api_key) ) path <- paste0(path, "?apikey=", api_key)
+  if (!is.null(api_key)) path <- paste0(path, "?apikey=", api_key)
 
   request <- httr::GET(path)
 
@@ -26,7 +26,8 @@ get_data <- function(...) {
 
   data <- jsonlite::fromJSON(response, flatten = TRUE)
 
-  if (!grepl("^2", as.character(request$status_code))) stop(request$status_code, " ", data$error)
+  if (!startsWith(as.character(request$status_code), "2"))
+    stop(request$status_code, " ", data$error)
 
   if (allowance == FALSE) data <- data[[1]]
 

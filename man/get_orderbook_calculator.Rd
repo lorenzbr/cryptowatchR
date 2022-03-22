@@ -8,21 +8,34 @@ get_orderbook_calculator(pair, amount = NULL, exchange = "kraken",
                          api_key = NULL, allowance = FALSE)
 }
 \arguments{
-\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
+\item{pair}{A string containing a pair symbol, e.g. \emph{btcusd}
+(required argument). Run \code{get_pairs()} to find other available pairs.}
 
 \item{amount}{A number: Amount to buy or sell (required).}
 
-\item{exchange}{A character string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
+\item{exchange}{A character string containing the exchange. Default is
+\emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
 
-\item{api_key}{A character string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+\item{api_key}{A character string containing the API key. See
+\url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an
+account and how to generate an API key.}
 
-\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
+\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the
+function returns a list which includes allowance information, i.e. cost of
+the request, remaining credits and your account name.}
 }
 \value{
-A list containing projections for the buy and sell side for a given amount. \emph{Reach} indicates the farthest your reach would fill. \emph{Avg} indicates the volume-weighted average. If allowance is \code{TRUE}, \code{get_orderbook_calculator()} returns a list which additionally includes allowance information.
+A list containing projections for the buy and sell side for a given
+amount. \emph{Reach} indicates the farthest your reach would fill.
+\emph{Avg} indicates the volume-weighted average. If allowance is
+\code{TRUE}, \code{get_orderbook_calculator()} returns a list which
+additionally includes allowance information.
 }
 \description{
-Get a live quote from the order book for a given buy and sell amount. The route is \emph{orderbook/calculator} and returns two data.frames containing buy and sell projections. See \url{https://docs.cryptowat.ch/rest-api/markets/order-book} for further information.
+Get a live quote from the order book for a given buy and sell amount. The
+route is \emph{orderbook/calculator} and returns two data.frames containing
+buy and sell projections. See
+\url{https://docs.cryptowat.ch/rest-api/markets/order-book} for further information.
 }
 \examples{
 \dontrun{
@@ -35,5 +48,7 @@ calculator <- get_orderbook_calculator("btcusd", amount = 50)
 See \url{https://docs.cryptowat.ch/rest-api} for further information.
 }
 \seealso{
-\code{\link{get_markets}}, \code{\link{get_orderbook}}, \code{\link{get_orderbook_liquidity}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
+\code{\link{get_markets}}, \code{\link{get_orderbook}},
+\code{\link{get_orderbook_liquidity}}, \code{\link{get_exchanges}},
+\code{\link{get_pairs}}
 }

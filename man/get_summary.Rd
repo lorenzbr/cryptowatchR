@@ -4,24 +4,37 @@
 \alias{get_summary}
 \title{Get 24-hour summary of cryptocurrencies}
 \usage{
-get_summary(pair, keyBy = NULL, exchange = "kraken", api_key = NULL, allowance = FALSE)
+get_summary(pair, keyBy = NULL, exchange = "kraken", api_key = NULL,
+allowance = FALSE)
 }
 \arguments{
-\item{pair}{A character string containing a pair symbol, e.g. \emph{btcusd} (required argument). Run \code{get_pairs()} to find other available pairs.}
+\item{pair}{A character string containing a pair symbol, e.g. \emph{btcusd}
+(required argument). Run \code{get_pairs()} to find other available pairs.}
 
-\item{keyBy}{A single character string. Possible values are are either \emph{id} or \emph{symbols}.}
+\item{keyBy}{A single character string. Possible values are are either
+\emph{id} or \emph{symbols}.}
 
-\item{exchange}{A character string containing the exchange. Default is \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
+\item{exchange}{A character string containing the exchange. Default is
+\emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}
 
-\item{api_key}{A character string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+\item{api_key}{A character string containing the API key. See
+\url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create
+an account and how to generate an API key.}
 
-\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
+\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the
+function returns a list which includes allowance information, i.e. cost of
+the request, remaining credits and your account name.}
 }
 \value{
-Current 24-hour summary of a given pair of currencies. If allowance is \code{TRUE}, \code{get_summary()} returns a list with additional information on allowances.
+Current 24-hour summary of a given pair of currencies. If allowance
+is \code{TRUE}, \code{get_summary()} returns a list with additional
+information on allowances.
 }
 \description{
-Get 24-hour summary of cryptocurrencies using the REST API of cryptowat.ch. The route is \emph{summary} or \emph{summaries} and returns the current 24-hour summary of a given pair or a summary of all pairs. See \url{https://docs.cryptowat.ch/rest-api/markets/summary} for further information.
+Get 24-hour summary of cryptocurrencies using the REST API of cryptowat.ch.
+The route is \emph{summary} or \emph{summaries} and returns the current
+24-hour summary of a given pair or a summary of all pairs. See
+\url{https://docs.cryptowat.ch/rest-api/markets/summary} for further information.
 }
 \examples{
 \dontrun{
@@ -36,5 +49,6 @@ summaries3 <- get_summary(keyBy = "symbols")
 See \url{https://docs.cryptowat.ch/rest-api} for further information.
 }
 \seealso{
-\code{\link{get_markets}}, \code{\link{get_current_price}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
+\code{\link{get_markets}}, \code{\link{get_current_price}},
+\code{\link{get_exchanges}}, \code{\link{get_pairs}}
 }

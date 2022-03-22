@@ -7,11 +7,16 @@
 get_assets(asset = NULL, api_key = NULL, allowance = FALSE)
 }
 \arguments{
-\item{asset}{A string containing an asset symbol, e.g. \emph{btc} (optional argument). Run \code{get_assets()} to get all available assets.}
+\item{asset}{A string containing an asset symbol, e.g. \emph{btc}
+(optional argument). Run \code{get_assets()} to get all available assets.}
 
-\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+\item{api_key}{A string containing the API key. See
+\url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create
+an account and how to generate an API key.}
 
-\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
+\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the
+function returns a list which includes allowance information, i.e. cost of
+ the request, remaining credits and your account name.}
 }
 \value{
 A list or data.frame containing data on assets.
@@ -22,9 +27,9 @@ Get asset information on cryptocurrencies.
 \examples{
 \dontrun{
 # Get all assets available on 'Cryptowatch'
-df.assets <- get_assets()
+df_assets <- get_assets()
 # Bitcoin asset details
-asset.btc <- get_assets("btc")
+asset_btc <- get_assets("btc")
 }
 
 }
@@ -32,5 +37,6 @@ asset.btc <- get_assets("btc")
 See \url{https://docs.cryptowat.ch/rest-api} for further information
 }
 \seealso{
-\code{\link{get_markets}}, \code{\link{get_exchanges}}, \code{\link{get_pairs}}
+\code{\link{get_markets}}, \code{\link{get_exchanges}},
+\code{\link{get_pairs}}
 }

@@ -7,14 +7,19 @@
 get_exchanges(exchange = NULL, api_key = NULL, allowance = FALSE)
 }
 \arguments{
-\item{exchange}{A string containing an exchange symbol, e.g. \emph{kraken} (optional argument). Run \code{get_exchanges()} to get a list of exchanges.}
+\item{exchange}{A string containing an exchange symbol, e.g. \emph{kraken}
+(optional argument). Run \code{get_exchanges()} to get a list of exchanges.}
 
-\item{api_key}{A string containing the API key. See \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create an account and how to generate an API key.}
+\item{api_key}{A string containing the API key. See
+\url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create
+an account and how to generate an API key.}
 
-\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the function returns a list which includes allowance information, i.e. cost of the request, remaining credits and your account name.}
+\item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the
+function returns a list which includes allowance information, i.e. cost of
+the request, remaining credits and your account name.}
 }
 \value{
-A list or data.frame containing data on exchanges.
+A list or data frame containing data on exchanges.
 }
 \description{
 Get information on exchanges.
@@ -22,9 +27,9 @@ Get information on exchanges.
 \examples{
 \dontrun{
 # Get all available exchanges
-df.exchanges <- get_exchanges()
+df_exchanges <- get_exchanges()
 # Get information on the exchange Kraken
-exchange.kraken <- get_exchanges("kraken")
+exchange_kraken <- get_exchanges("kraken")
 }
 
 }

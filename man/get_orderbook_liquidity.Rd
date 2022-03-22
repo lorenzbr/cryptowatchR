@@ -5,7 +5,7 @@
 \title{Get liquidity sums in the order book of cryptocurrencies}
 \usage{
 get_orderbook_liquidity(pair, exchange = "kraken", api_key = NULL,
-allowance = FALSE)
+                               allowance = FALSE)
 }
 \arguments{
 \item{pair}{A character string containing a pair symbol, e.g. \emph{btcusd}

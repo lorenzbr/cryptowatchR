@@ -59,53 +59,55 @@ exchange <- "kraken"
 pair <- "btcusd"
 
 # Daily prices of Bitcoin in USD
-df.ohlc.daily <- get_ohlc(pair)
+df_ohlc_daily <- get_ohlc(pair)
 
 # Hourly prices
-df.ohlc.hourly <- get_ohlc(pair, periods = 3600,
+df_ohlc_hourly <- get_ohlc(pair, periods = 3600,
                            before = as.numeric(as.POSIXct(Sys.Date())),
                            after = as.numeric(as.POSIXct(Sys.Date() - 5)),
                            exchange, datetime = FALSE)
 
 # Hourly prices using date/datetime variables
-df.ohlc.hourly.datetime <- get_ohlc(pair, periods = 3600, before = Sys.Date(), after = Sys.Date() - 5,
+df_ohlc_hourly_datetime <- get_ohlc(pair, periods = 3600, 
+                                    before = Sys.Date(), after = Sys.Date() - 5,
                                     exchange, datetime = TRUE)
 
 # Daily prices using date/datetime variables
-df.ohlc.daily.datetime <- get_ohlc(pair, periods = 86400, before = "2021-05-12", after = "2021-01-01",
-                       exchange, datetime = TRUE)
+df_ohlc_daily_datetime <- get_ohlc(pair, periods = 86400, 
+                                   before = "2021-05-12", after = "2021-01-01",
+                                   exchange, datetime = TRUE)
 
 # Daily prices using POSIX time
-df.ohlc.daily.posix <- get_ohlc(pair, periods = 86400, 
+df_ohlc_daily_posix <- get_ohlc(pair, periods = 86400, 
                                 before = as.numeric(as.POSIXct("2021-05-12 14:00:00 UCT")),
                                 after = as.numeric(as.POSIXct("2021-01-01 14:00:00 UCT")), 
                                 exchange, datetime = FALSE)
 
 # Current market price
-current.price <- get_current_price("btcusd")
-current.prices <- get_current_price()
+current_price <- get_current_price("btcusd")
+current_prices <- get_current_price()
 
 ## Get trades
 # Most recent trades (default is 50)
 trades <- get_trades(pair)
 # 100 trades
-trades.100 <- get_trades(pair, limit = 100, datetime = FALSE)
+trades_100 <- get_trades(pair, limit = 100, datetime = FALSE)
 # 200 trades (maximum is 1000) since 1589571417 (unix timestamp)
-trades.unix <- get_trades(pair, since = 1589571417, limit = 200, datetime = FALSE)
+trades_unix <- get_trades(pair, since = 1589571417, limit = 200, datetime = FALSE)
 # 1000 trades and datetime is TRUE
-trades.datetime <- get_trades(pair, since = "2021-06-01", limit = 1000)
+trades_datetime <- get_trades(pair, since = "2021-06-01", limit = 1000)
 
 # 24h-hour summary of cryptocurrency pairs
 summary <- get_summary("btcusd")
 summaries <- get_summary()
-summaries.id <- get_summary(keyBy = "id")
-summaries.symbols <- get_summary(keyBy = "symbols")
+summaries_id <- get_summary(keyBy = "id")
+summaries_symbols <- get_summary(keyBy = "symbols")
 
 # Orderbook for Bitcoin-USD (bid and ask with Price and Amount)
 orderbook <- get_orderbook(pair, exchange = exchange)
-orderbook.depth <- get_orderbook(pair, exchange = exchange, depth = 100)
-orderbook.span <- get_orderbook(pair, exchange = exchange, span = 0.5)
-orderbook.limit <- get_orderbook(pair, exchange = exchange, limit = 1)
+orderbook_depth <- get_orderbook(pair, exchange = exchange, depth = 100)
+orderbook_span <- get_orderbook(pair, exchange = exchange, span = 0.5)
+orderbook_limit <- get_orderbook(pair, exchange = exchange, limit = 1)
 
 # Get liquidity sums in the order book of Bitcoin in USD
 liquidity <- get_orderbook_liquidity("btcusd")
@@ -114,16 +116,16 @@ liquidity <- get_orderbook_liquidity("btcusd")
 calculator <- get_orderbook_calculator("btcusd", amount = 50)
 
 # Asset information
-df.assets <- get_assets()
-asset.btc <- get_assets("btc")
+df_assets <- get_assets()
+asset_btc <- get_assets("btc")
 
 # Information on pairs of currencies
-df.pairs <- get_pairs()
-pair.btcusd <- get_pairs("btcusd")
+df_pairs <- get_pairs()
+pair_btcusd <- get_pairs("btcusd")
 
 # Information on crypto exchanges
-df.exchanges <- get_exchanges()
-exchange.kraken <- get_exchanges("kraken")
+df_exchanges <- get_exchanges()
+exchange_kraken <- get_exchanges("kraken")
 ```
 
 

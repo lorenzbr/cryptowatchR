@@ -4,7 +4,7 @@
 #' of cryptowat.ch. The route is \emph{orderbook/liquidity}. See \url{https://docs.cryptowat.ch/rest-api/markets/order-book} for further information.
 #'
 #' @usage get_orderbook_liquidity(pair, exchange = "kraken", api_key = NULL,
-#' allowance = FALSE)
+#'                                allowance = FALSE)
 #' @param pair A character string containing a pair symbol, e.g. \emph{btcusd}
 #' (required argument). Run \code{get_pairs()} to find other available pairs.
 #' @param exchange A character string containing the exchange. Default is

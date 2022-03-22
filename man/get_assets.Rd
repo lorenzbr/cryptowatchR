@@ -15,11 +15,11 @@ get_assets(asset = NULL, api_key = NULL, allowance = FALSE)
 an account and how to generate an API key.}
 
 \item{allowance}{A logical (default is \code{FALSE}). If \code{TRUE} the
-function returns a list which includes allowance information, i.e. cost of
+function returns a list which includes allowance information, i.e., cost of
  the request, remaining credits and your account name.}
 }
 \value{
-A list or data.frame containing data on assets.
+A list or data frame containing data on assets.
 }
 \description{
 Get asset information on cryptocurrencies.

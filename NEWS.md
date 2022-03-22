@@ -1,5 +1,7 @@
 # cryptowatchR 0.2.0.9000 (dev)
 
+* Minor style formatting and performance improvements
+
 # cryptowatchR 0.2.0
 
 * Now `get_markets()` works with all routes (`summary`, `summaries`, `price`, `prices`, `trades` and `orderbook`, `orderbook/liquidity` and `orderbook/calculator`).

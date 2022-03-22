@@ -19,7 +19,7 @@
 #'  \url{https://docs.cryptowat.ch/rest-api/rate-limit} to learn how to create
 #'  an account and how to generate an API key.
 #' @param allowance A logical (default is \code{FALSE}). If \code{TRUE} the
-#'  function returns a list which includes allowance information, i.e. cost of
+#'  function returns a list which includes allowance information, i.e., cost of
 #'  the request, remaining credits and your account name.
 #'
 #' @return A list containing markets data.

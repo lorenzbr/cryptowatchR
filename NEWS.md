@@ -1,6 +1,7 @@
 # cryptowatchR 0.2.0.9000 (dev)
 
 * Minor style formatting and performance improvements
+* Add tests for several functions
 
 # cryptowatchR 0.2.0
 

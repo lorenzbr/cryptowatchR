@@ -1,9 +1,3 @@
-check_status <- function() {
-  request <- httr::GET( "https://api.cryptowat.ch/markets/kraken/btceur/price")
-  if (!startsWith(as.character(request$status_code), "2"))
-    skip("Request failed.")
-}
-
 # Settings
 exchange <- "kraken"
 pair <- "btcusd"
@@ -57,15 +51,15 @@ test_that("data frames have 7 columns", {
 
   col_length <- 7
 
-  expect_equal(length(df_ohlc_daily), col_length)
-  expect_equal(length(df_ohlc_hourly), col_length)
-  expect_equal(length(df_ohlc_hourly_datetime), col_length)
-  expect_equal(length(df_ohlc_daily_datetime), col_length)
-  expect_equal(length(df_ohlc_daily_posix), col_length)
+  expect_length(df_ohlc_daily, col_length)
+  expect_length(df_ohlc_hourly, col_length)
+  expect_length(df_ohlc_hourly_datetime, col_length)
+  expect_length(df_ohlc_daily_datetime, col_length)
+  expect_length(df_ohlc_daily_posix, col_length)
 
 })
 
-test_that("dates are valid", {
+test_that("dates are of expected type", {
 
   check_status()
 
@@ -80,7 +74,7 @@ test_that("dates are valid", {
 
 })
 
-test_that("non-existent pair throws an error.", {
+test_that("non-existent pair throws an error", {
 
   check_status()
 
@@ -88,7 +82,7 @@ test_that("non-existent pair throws an error.", {
 
 })
 
-test_that("error is thrown when prices are not available.", {
+test_that("error is thrown when prices are not available", {
 
   check_status()
 

@@ -67,17 +67,29 @@ get_ohlc <- function(pair, before = NULL, after = NULL, periods = NULL,
 
   if (allowance) {
 
-    df_prices <- ifelse(!is.null(params[["periods"]]),
-                        data.frame(prices[[1]][[1]]),
-                        data.frame(prices[[1]][names(prices) == "86400"]))
+    if (!is.null(params[["periods"]])) {
+
+      df_prices <- data.frame(prices[[1]][[1]])
+
+    } else if (is.null(params[["periods"]])) {
+
+      df_prices <- data.frame(prices[[1]][names(prices) == "86400"])
+
+    }
 
     allowance_list <- prices[[2]]
 
   } else if (allowance == FALSE) {
 
-    df_prices <- ifelse(!is.null(params[["periods"]]),
-                        data.frame(prices[[1]]),
-                        data.frame(prices[names(prices) == "86400"]))
+    if (!is.null(params[["periods"]])) {
+
+      df_prices <- data.frame(prices[[1]])
+
+    } else if (is.null(params[["periods"]])) {
+
+      df_prices <- data.frame(prices[names(prices) == "86400"])
+
+    }
 
   }
 
@@ -93,9 +105,15 @@ get_ohlc <- function(pair, before = NULL, after = NULL, periods = NULL,
 
   }
 
-  output <- ifelse(allowance,
-                   list(result = df_prices, allowance = allowance_list),
-                   df_prices)
+  if (allowance) {
+
+    output <- list(result = df_prices, allowance = allowance_list)
+
+  } else if (allowance == FALSE) {
+
+    output <- df_prices
+
+  }
 
   return(output)
 

@@ -64,11 +64,18 @@ get_trades <- function(pair, since = NULL, limit = NULL, exchange = "kraken",
 
   names(df_trades) <- c("ID", "Timestamp", "Price", "Amount")
 
-  if (datetime) df_trades$Timestamp <- lubridate::as_datetime(df_trades$Timestamp)
+  if (datetime)
+    df_trades$Timestamp <- lubridate::as_datetime(df_trades$Timestamp)
 
-  output <- ifelse(allowance,
-                   list(result = df_trades, allowance = allowance_list),
-                   df_trades)
+  if (allowance) {
+
+    output <- list(result = df_trades, allowance = allowance_list)
+
+  } else if (allowance == FALSE) {
+
+    output <- df_trades
+
+  }
 
   return(output)
 

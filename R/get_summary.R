@@ -68,9 +68,15 @@ get_summary <- function(pair = NULL, keyBy = NULL, exchange = "kraken",
 
   }
 
-  output <- ifelse(allowance,
-                   list(result = summary, allowance = allowance_list),
-                   summary)
+  if (allowance) {
+
+    output <- list(result = summary, allowance = allowance_list)
+
+  } else if (allowance == FALSE) {
+
+    output <- summary
+
+  }
 
   return(output)
 

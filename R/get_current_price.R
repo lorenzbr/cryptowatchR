@@ -58,10 +58,14 @@ get_current_price <- function(pair = NULL, exchange = "kraken", api_key = NULL,
 
   }
 
+  if (allowance) {
 
-  output <- ifelse(allowance,
-                   list(result = price_out, allowance = allowance_list),
-                   price_out)
+    output <- list(result = price_out, allowance = allowance_list)
+
+  } else if (allowance == FALSE) {
+
+    output <- price_out
+  }
 
   return(output)
 

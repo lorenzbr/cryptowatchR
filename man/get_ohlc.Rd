@@ -19,7 +19,9 @@ string if it is \code{TRUE}: Only returns candles opening before this time (opti
 string if it is \code{TRUE}: Only returns candles opening after this time (optional).}
 
 \item{periods}{A integer or integer vector. Only return these periods.
-Periods are measured in seconds (optional). Examples: 60, 180, 108000.}
+Periods are measured in seconds (optional). Examples: 60, 180, 3600, 86400.
+See \url{https://docs.cryptowat.ch/rest-api/markets/ohlc#period-values} for
+complete information.}
 
 \item{exchange}{A character string containing the exchange. Default is
 \emph{kraken}. Run \code{get_exchanges()} to find other available exchanges.}

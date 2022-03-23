@@ -12,6 +12,8 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable-1)
 [![R-CMD-check](https://github.com/lorenzbr/cryptowatchR/workflows/R-CMD-check/badge.svg)](https://github.com/lorenzbr/cryptowatchR/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/lorenzbr/cryptowatchR/branch/main/graph/badge.svg)](https://codecov.io/gh/lorenzbr/cryptowatchR?branch=main)
 <!-- badges: end -->
 
 An API wrapper for Cryptowatch written in R
@@ -67,12 +69,14 @@ df_ohlc_hourly <- get_ohlc(pair, periods = 3600,
 
 # Hourly prices using date/datetime variables
 df_ohlc_hourly_datetime <- get_ohlc(pair, periods = 3600, 
-                                    before = Sys.Date(), after = Sys.Date() - 5,
+                                    before = Sys.Date(), 
+                                    after = Sys.Date() - 5,
                                     exchange, datetime = TRUE)
 
 # Daily prices using date/datetime variables
 df_ohlc_daily_datetime <- get_ohlc(pair, periods = 86400, 
-                                   before = "2021-05-12", after = "2021-01-01",
+                                   before = "2021-05-12", 
+                                   after = "2021-01-01",
                                    exchange, datetime = TRUE)
 
 # Daily prices using POSIX time
